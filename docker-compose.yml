@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-autotriage}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-autotriage}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your .env file}
       POSTGRES_DB: ${POSTGRES_DB:-autotriage}
     ports:
       - "5432:5432"
@@ -42,7 +42,7 @@ services:
       db:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER:-autotriage}:${POSTGRES_PASSWORD:-autotriage}@db:5432/${POSTGRES_DB:-autotriage}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-autotriage}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-autotriage}
       PYTHONPATH: /app
     ports:
       - "8000:8000"
