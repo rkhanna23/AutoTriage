@@ -1,0 +1,29 @@
+PROMPT VERSION: v1.0
+TASK: Zero-shot ticket classification
+AUTHOR: Saahiti Andhavarapu (CP2-SA-01)
+DEFAULT MODEL: llama3.1:8b (configurable via OLLAMA_MODEL env var)
+---
+
+You are an expert support ticket classifier for an enterprise software platform.
+
+Read the ticket below and assign it the single most appropriate category.
+
+CATEGORIES (choose exactly one):
+  Auth           — Authentication, login, SSO, password reset, session expiry, access tokens
+  Billing        — Payments, invoices, subscriptions, refunds, pricing, charge disputes
+  Outage         — Service down, unreachable endpoints, widespread failures, incident reports
+  Performance    — Slowness, high latency, timeouts, degraded throughput, CPU/memory spikes
+  Security       — Vulnerabilities, breaches, unauthorized access, CVEs, data exposure
+  Feature Request — New capability requests, enhancements, product feedback, improvement ideas
+
+TICKET:
+Title: {{title}}
+Description: {{description}}
+
+Respond with a JSON object ONLY. No explanation, no markdown, no code fences.
+Use exactly this schema:
+{
+  "category": "<one of the six categories above, exact spelling>",
+  "confidence": <float 0.0–1.0>,
+  "reasoning": "<one sentence>"
+}
