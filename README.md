@@ -22,6 +22,76 @@ AutoTriage/
 └── tests/               # Test suite
 ```
 
+## Local Setup (CP2-RK-05)
+
+> **100% free. No API keys. No credit cards.** The classifier runs locally via [Ollama](https://ollama.com) — an open-source LLM runtime. The default model is `llama3.1:8b` but you can swap to DeepSeek-R1, Mistral, Qwen2.5, or any other model by changing one env var.
+
+### Option A — Docker (recommended, one command)
+
+**Prerequisites:** [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/rkhanna23/AutoTriage
+cd AutoTriage
+
+# 2. (Optional) Pick a different model — edit .env or just export:
+#    export OLLAMA_MODEL=deepseek-r1:7b   # or mistral, qwen2.5:7b, llama3.3:70b, etc.
+
+# 3. Start everything — Ollama + model pull + DB + API + classifier
+docker compose up --build
+
+# Services available at:
+#   Intake API  →  http://localhost:8000
+#   Swagger UI  →  http://localhost:8000/docs
+#   Classifier  →  http://localhost:8001
+#   Ollama      →  http://localhost:11434
+```
+
+> The first run pulls the model automatically (~4–5 GB for 8B models). Subsequent runs use the cached version instantly.
+
+### Option B — Local dev (no Docker)
+
+```bash
+# 1. Install Ollama  →  https://ollama.com/download
+ollama pull llama3.1:8b   # or whichever model you prefer
+
+# 2. Install intake dependencies and start the API (uses SQLite — no DB setup)
+pip install -r services/intake/requirements.txt
+uvicorn services.intake.main:app --reload --port 8000
+
+# 3. (Optional) Start the classifier in a separate terminal
+pip install -r services/classifier/requirements.txt
+uvicorn services.classifier.main:app --reload --port 8001
+
+# 4. Run all tests
+pytest tests/
+```
+
+### Swapping the LLM
+
+Change `OLLAMA_MODEL` in your `.env` (or `docker-compose.yml`) to any model from [ollama.com/library](https://ollama.com/library):
+
+| Model | Size | Notes |
+|---|---|---|
+| `llama3.1:8b` | ~5 GB | **Default** — fast, great accuracy |
+| `deepseek-r1:7b` | ~4 GB | Strong reasoning |
+| `mistral` | ~4 GB | Fast, solid classification |
+| `qwen2.5:7b` | ~4.5 GB | Excellent multilingual |
+| `llama3.3:70b` | ~40 GB | Best accuracy, needs high RAM |
+
+### Environment Variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `OLLAMA_MODEL` | `llama3.1:8b` | LLM used by the classifier |
+| `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama API endpoint |
+| `DATABASE_URL` | `sqlite:///./autotriage.db` | Auto-set; override for PostgreSQL |
+| `POSTGRES_USER` | `autotriage` | PostgreSQL username (Docker only) |
+| `POSTGRES_PASSWORD` | `autotriage` | PostgreSQL password (Docker only) |
+
+---
+
 ## Milestones
 
 | Checkpoint | Deliverable |

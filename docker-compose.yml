@@ -1,0 +1,104 @@
+version: "3.9"
+
+# AutoTriage — full local stack, no paid API keys required.
+#
+# Swap the LLM any time by changing OLLAMA_MODEL:
+#   llama3.1:8b (default — fast, good accuracy)
+#   deepseek-r1:7b
+#   mistral
+#   qwen2.5:7b
+#   llama3.3:70b  (best accuracy, needs ~40 GB RAM)
+#   mixtral:8x7b
+
+services:
+
+  # ── PostgreSQL ─────────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    container_name: autotriage_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-autotriage}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-autotriage}
+      POSTGRES_DB: ${POSTGRES_DB:-autotriage}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autotriage"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Ticket Intake API ──────────────────────────────────────────────────────
+  intake:
+    build:
+      context: .
+      dockerfile: services/intake/Dockerfile
+    container_name: autotriage_intake
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-autotriage}:${POSTGRES_PASSWORD:-autotriage}@db:5432/${POSTGRES_DB:-autotriage}
+      PYTHONPATH: /app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/intake:/app/services/intake
+
+  # ── Ollama (local LLM runtime) ─────────────────────────────────────────────
+  ollama:
+    image: ollama/ollama
+    container_name: autotriage_ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    # Uncomment the next two lines if you have an NVIDIA GPU:
+    # deploy:
+    #   resources: { reservations: { devices: [{ driver: nvidia, count: all, capabilities: [gpu] }] } }
+
+  # Pulls the chosen model once on startup, then exits.
+  # Change OLLAMA_MODEL here (or in .env) to use a different model.
+  ollama-pull:
+    image: ollama/ollama
+    container_name: autotriage_ollama_pull
+    depends_on:
+      - ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: >
+      /bin/sh -c "
+        sleep 5 &&
+        ollama pull ${OLLAMA_MODEL:-llama3.1:8b} &&
+        echo 'Model ready.'
+      "
+    restart: "no"
+
+  # ── Classifier Service ─────────────────────────────────────────────────────
+  classifier:
+    build:
+      context: .
+      dockerfile: services/classifier/Dockerfile
+    container_name: autotriage_classifier
+    restart: unless-stopped
+    depends_on:
+      - ollama
+      - ollama-pull
+    environment:
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.1:8b}
+      INTAKE_SERVICE_URL: http://intake:8000
+      PYTHONPATH: /app
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./services/classifier:/app/services/classifier
+
+volumes:
+  postgres_data:
+  ollama_models:
