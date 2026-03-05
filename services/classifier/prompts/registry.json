@@ -1,0 +1,19 @@
+{
+  "active_version": "v1.0",
+  "versions": [
+    {
+      "version": "v1.0",
+      "file": "v1.0.txt",
+      "checkpoint": "CP2-SA-02/03",
+      "status": "active",
+      "notes": "Structured schema with category, severity, confidence, model_version, prompt_version"
+    },
+    {
+      "version": "v1.1",
+      "file": "v1.1.txt",
+      "checkpoint": "internal-experiment",
+      "status": "inactive",
+      "notes": "Extended instruction variant kept for traceability"
+    }
+  ]
+}

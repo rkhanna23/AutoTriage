@@ -162,11 +162,10 @@ curl -s -X POST http://localhost:8001/classify \
 # {
 #   "ticket_id": "test-001",
 #   "category": "Auth",
+#   "severity": "P1",
 #   "confidence": 0.95,
-#   "reasoning": "...",
 #   "model_version": "llama3.1:8b",
-#   "prompt_version": "v1.0",
-#   "low_confidence": false
+#   "prompt_version": "v1.0"
 # }
 
 # Health check
@@ -250,10 +249,10 @@ curl -s http://localhost:8001/health
 | CP2-RK-04 | Ronit | Done | 15 integration tests + OpenAPI docs |
 | CP2-RK-05 | Ronit | Done | Docker + docker-compose + README |
 | CP2-SA-01 | Saahiti | Done | Zero-shot category classifier |
-| CP2-SA-02 | Saahiti | Pending | Severity prediction (P0–P3) |
-| CP2-SA-03 | Saahiti | Pending | Structured output schema + prompt versioning |
-| CP2-SA-04 | Saahiti | Pending | Baseline accuracy benchmarks |
-| CP2-KL-01 | Karen | Pending | Labeled ticket dataset (200+ tickets) |
+| CP2-SA-02 | Saahiti | Done | Severity prediction (P0–P3) added to classifier output |
+| CP2-SA-03 | Saahiti | Done | Structured output schema + prompt registry/versioning (v1.0 active) |
+| CP2-SA-04 | Saahiti | Done | Baseline benchmark runner + output artifact in `/evaluation` |
+| CP2-KL-01 | Karen | Done | Ticket Dataset v1 generated (210 synthetic labeled tickets, balanced) |
 | CP2-KL-02 | Karen | Pending | Real-world ticket examples |
 | CP2-KL-03 | Karen | Pending | Dashboard scaffold |
 | CP2-KL-04 | Karen | Pending | Evaluation harness (run_eval.py) |
@@ -266,7 +265,7 @@ If you are an LLM reading this file to help with the project:
 
 - **Adding a new endpoint** → edit `services/intake/main.py`, add a Pydantic schema in `schemas.py` if needed, and add tests in `tests/test_intake.py`
 - **Changing the classifier model** → set `OLLAMA_MODEL` in `.env` or `docker-compose.yml`; no code changes needed
-- **Extending the classifier** (SA-02 severity) → edit `services/classifier/classifier.py` and update the prompt in `services/classifier/prompts/`; bump prompt version to `v1.1`
+- **Extending the classifier** (SA-02 severity) → edit `services/classifier/classifier.py` and update the prompt in `services/classifier/prompts/`; add a new version entry in `prompts/registry.json`
 - **Adding the dataset** (KL-01) → place CSV/JSON in `data/` with columns: `title`, `description`, `category`, `severity`, `source`
 - **Running evaluation** (SA-04/KL-04) → `evaluation/run_eval.py` will be added by Karen; it expects a labeled dataset in `data/` and classifier output
 - **Database migrations** → SQLAlchemy creates tables automatically on startup via `Base.metadata.create_all()`; for schema changes add an Alembic migration

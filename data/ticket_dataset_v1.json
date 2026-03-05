@@ -1,0 +1,1682 @@
+[
+  {
+    "ticket_id": "v1-0001",
+    "title": "SSO callback loop for enterprise tenants [AUT-01]",
+    "description": "Observed in production. users are blocked from signing in. Repro count: 1.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0002",
+    "title": "MFA prompt never appears after password entry [AUT-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that authentication fails across multiple orgs. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0003",
+    "title": "Password reset link expires instantly [AUT-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however new sessions cannot be established when the boundary condition is met (case #1002).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0004",
+    "title": "OIDC token rejected by auth gateway [AUT-04]",
+    "description": "Observed in production. login flow breaks after redirect. Repro count: 4.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0005",
+    "title": "Service account login fails with 401 [AUT-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that access is denied for valid credentials. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0006",
+    "title": "Session timeout too aggressive for analysts [AUT-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users are blocked from signing in when the boundary condition is met (case #1005).",
+    "category": "Auth",
+    "severity": "P0",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0007",
+    "title": "Admin cannot impersonate user for support [AUT-07]",
+    "description": "Observed in production. authentication fails across multiple orgs. Repro count: 7.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0008",
+    "title": "SSO callback loop for enterprise tenants [AUT-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that new sessions cannot be established. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0009",
+    "title": "MFA prompt never appears after password entry [AUT-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however login flow breaks after redirect when the boundary condition is met (case #1008).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0010",
+    "title": "Password reset link expires instantly [AUT-10]",
+    "description": "Observed in production. access is denied for valid credentials. Repro count: 1.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0011",
+    "title": "OIDC token rejected by auth gateway [AUT-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users are blocked from signing in. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0012",
+    "title": "Service account login fails with 401 [AUT-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however authentication fails across multiple orgs when the boundary condition is met (case #1011).",
+    "category": "Auth",
+    "severity": "P0",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0013",
+    "title": "Session timeout too aggressive for analysts [AUT-13]",
+    "description": "Observed in production. new sessions cannot be established. Repro count: 4.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0014",
+    "title": "Admin cannot impersonate user for support [AUT-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that login flow breaks after redirect. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0015",
+    "title": "SSO callback loop for enterprise tenants [AUT-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however access is denied for valid credentials when the boundary condition is met (case #1014).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0016",
+    "title": "MFA prompt never appears after password entry [AUT-16]",
+    "description": "Observed in production. users are blocked from signing in. Repro count: 7.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0017",
+    "title": "Password reset link expires instantly [AUT-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that authentication fails across multiple orgs. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0018",
+    "title": "OIDC token rejected by auth gateway [AUT-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however new sessions cannot be established when the boundary condition is met (case #1017).",
+    "category": "Auth",
+    "severity": "P0",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0019",
+    "title": "Service account login fails with 401 [AUT-19]",
+    "description": "Observed in production. login flow breaks after redirect. Repro count: 1.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0020",
+    "title": "Session timeout too aggressive for analysts [AUT-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that access is denied for valid credentials. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0021",
+    "title": "Admin cannot impersonate user for support [AUT-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users are blocked from signing in when the boundary condition is met (case #1020).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0022",
+    "title": "SSO callback loop for enterprise tenants [AUT-22]",
+    "description": "Observed in production. authentication fails across multiple orgs. Repro count: 4.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0023",
+    "title": "MFA prompt never appears after password entry [AUT-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that new sessions cannot be established. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0024",
+    "title": "Password reset link expires instantly [AUT-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however login flow breaks after redirect when the boundary condition is met (case #1023).",
+    "category": "Auth",
+    "severity": "P0",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0025",
+    "title": "OIDC token rejected by auth gateway [AUT-25]",
+    "description": "Observed in production. access is denied for valid credentials. Repro count: 7.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0026",
+    "title": "Service account login fails with 401 [AUT-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users are blocked from signing in. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0027",
+    "title": "Session timeout too aggressive for analysts [AUT-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however authentication fails across multiple orgs when the boundary condition is met (case #1026).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0028",
+    "title": "Admin cannot impersonate user for support [AUT-28]",
+    "description": "Observed in production. new sessions cannot be established. Repro count: 1.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0029",
+    "title": "SSO callback loop for enterprise tenants [AUT-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that login flow breaks after redirect. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0030",
+    "title": "MFA prompt never appears after password entry [AUT-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however access is denied for valid credentials when the boundary condition is met (case #1029).",
+    "category": "Auth",
+    "severity": "P0",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0031",
+    "title": "Password reset link expires instantly [AUT-31]",
+    "description": "Observed in production. users are blocked from signing in. Repro count: 4.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0032",
+    "title": "OIDC token rejected by auth gateway [AUT-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that authentication fails across multiple orgs. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0033",
+    "title": "Service account login fails with 401 [AUT-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however new sessions cannot be established when the boundary condition is met (case #1032).",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0034",
+    "title": "Session timeout too aggressive for analysts [AUT-34]",
+    "description": "Observed in production. login flow breaks after redirect. Repro count: 7.",
+    "category": "Auth",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0035",
+    "title": "Admin cannot impersonate user for support [AUT-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that access is denied for valid credentials. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Auth",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0036",
+    "title": "Invoice PDF download returns 500 [BIL-01]",
+    "description": "Observed in production. finance team cannot reconcile charges. Repro count: 1.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0037",
+    "title": "Duplicate charge after plan upgrade [BIL-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that customers report incorrect billing totals. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0038",
+    "title": "Proration amount looks incorrect [BIL-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however payment workflow fails at confirmation when the boundary condition is met (case #1002).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0039",
+    "title": "Card update form fails validation [BIL-04]",
+    "description": "Observed in production. subscription status does not match payment. Repro count: 4.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0040",
+    "title": "Refund request stuck in pending [BIL-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that billing records appear inconsistent. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0041",
+    "title": "Annual subscription renewal overcharged [BIL-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however finance team cannot reconcile charges when the boundary condition is met (case #1005).",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0042",
+    "title": "Tax calculation mismatch in checkout [BIL-07]",
+    "description": "Observed in production. customers report incorrect billing totals. Repro count: 7.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0043",
+    "title": "Invoice PDF download returns 500 [BIL-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that payment workflow fails at confirmation. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0044",
+    "title": "Duplicate charge after plan upgrade [BIL-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however subscription status does not match payment when the boundary condition is met (case #1008).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0045",
+    "title": "Proration amount looks incorrect [BIL-10]",
+    "description": "Observed in production. billing records appear inconsistent. Repro count: 1.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0046",
+    "title": "Card update form fails validation [BIL-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that finance team cannot reconcile charges. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0047",
+    "title": "Refund request stuck in pending [BIL-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however customers report incorrect billing totals when the boundary condition is met (case #1011).",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0048",
+    "title": "Annual subscription renewal overcharged [BIL-13]",
+    "description": "Observed in production. payment workflow fails at confirmation. Repro count: 4.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0049",
+    "title": "Tax calculation mismatch in checkout [BIL-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that subscription status does not match payment. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0050",
+    "title": "Invoice PDF download returns 500 [BIL-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however billing records appear inconsistent when the boundary condition is met (case #1014).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0051",
+    "title": "Duplicate charge after plan upgrade [BIL-16]",
+    "description": "Observed in production. finance team cannot reconcile charges. Repro count: 7.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0052",
+    "title": "Proration amount looks incorrect [BIL-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that customers report incorrect billing totals. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0053",
+    "title": "Card update form fails validation [BIL-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however payment workflow fails at confirmation when the boundary condition is met (case #1017).",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0054",
+    "title": "Refund request stuck in pending [BIL-19]",
+    "description": "Observed in production. subscription status does not match payment. Repro count: 1.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0055",
+    "title": "Annual subscription renewal overcharged [BIL-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that billing records appear inconsistent. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0056",
+    "title": "Tax calculation mismatch in checkout [BIL-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however finance team cannot reconcile charges when the boundary condition is met (case #1020).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0057",
+    "title": "Invoice PDF download returns 500 [BIL-22]",
+    "description": "Observed in production. customers report incorrect billing totals. Repro count: 4.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0058",
+    "title": "Duplicate charge after plan upgrade [BIL-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that payment workflow fails at confirmation. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0059",
+    "title": "Proration amount looks incorrect [BIL-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however subscription status does not match payment when the boundary condition is met (case #1023).",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0060",
+    "title": "Card update form fails validation [BIL-25]",
+    "description": "Observed in production. billing records appear inconsistent. Repro count: 7.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0061",
+    "title": "Refund request stuck in pending [BIL-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that finance team cannot reconcile charges. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0062",
+    "title": "Annual subscription renewal overcharged [BIL-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however customers report incorrect billing totals when the boundary condition is met (case #1026).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0063",
+    "title": "Tax calculation mismatch in checkout [BIL-28]",
+    "description": "Observed in production. payment workflow fails at confirmation. Repro count: 1.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0064",
+    "title": "Invoice PDF download returns 500 [BIL-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that subscription status does not match payment. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0065",
+    "title": "Duplicate charge after plan upgrade [BIL-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however billing records appear inconsistent when the boundary condition is met (case #1029).",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0066",
+    "title": "Proration amount looks incorrect [BIL-31]",
+    "description": "Observed in production. finance team cannot reconcile charges. Repro count: 4.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0067",
+    "title": "Card update form fails validation [BIL-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that customers report incorrect billing totals. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0068",
+    "title": "Refund request stuck in pending [BIL-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however payment workflow fails at confirmation when the boundary condition is met (case #1032).",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0069",
+    "title": "Annual subscription renewal overcharged [BIL-34]",
+    "description": "Observed in production. subscription status does not match payment. Repro count: 7.",
+    "category": "Billing",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0070",
+    "title": "Tax calculation mismatch in checkout [BIL-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that billing records appear inconsistent. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Billing",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0071",
+    "title": "Primary API cluster unreachable [OUT-01]",
+    "description": "Observed in production. core services are unavailable. Repro count: 1.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0072",
+    "title": "Background workers not processing jobs [OUT-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that critical user workflows are down. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0073",
+    "title": "Customer portal shows 503 globally [OUT-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however requests fail for nearly all customers when the boundary condition is met (case #1002).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0074",
+    "title": "Message queue outage in production [OUT-04]",
+    "description": "Observed in production. production traffic cannot be served. Repro count: 4.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0075",
+    "title": "Region us-east service hard down [OUT-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that system availability is severely impacted. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0076",
+    "title": "Webhook delivery halted for all tenants [OUT-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however core services are unavailable when the boundary condition is met (case #1005).",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0077",
+    "title": "Incident: core dependency unavailable [OUT-07]",
+    "description": "Observed in production. critical user workflows are down. Repro count: 7.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0078",
+    "title": "Primary API cluster unreachable [OUT-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that requests fail for nearly all customers. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0079",
+    "title": "Background workers not processing jobs [OUT-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however production traffic cannot be served when the boundary condition is met (case #1008).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0080",
+    "title": "Customer portal shows 503 globally [OUT-10]",
+    "description": "Observed in production. system availability is severely impacted. Repro count: 1.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0081",
+    "title": "Message queue outage in production [OUT-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that core services are unavailable. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0082",
+    "title": "Region us-east service hard down [OUT-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however critical user workflows are down when the boundary condition is met (case #1011).",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0083",
+    "title": "Webhook delivery halted for all tenants [OUT-13]",
+    "description": "Observed in production. requests fail for nearly all customers. Repro count: 4.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0084",
+    "title": "Incident: core dependency unavailable [OUT-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that production traffic cannot be served. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0085",
+    "title": "Primary API cluster unreachable [OUT-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however system availability is severely impacted when the boundary condition is met (case #1014).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0086",
+    "title": "Background workers not processing jobs [OUT-16]",
+    "description": "Observed in production. core services are unavailable. Repro count: 7.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0087",
+    "title": "Customer portal shows 503 globally [OUT-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that critical user workflows are down. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0088",
+    "title": "Message queue outage in production [OUT-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however requests fail for nearly all customers when the boundary condition is met (case #1017).",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0089",
+    "title": "Region us-east service hard down [OUT-19]",
+    "description": "Observed in production. production traffic cannot be served. Repro count: 1.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0090",
+    "title": "Webhook delivery halted for all tenants [OUT-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that system availability is severely impacted. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0091",
+    "title": "Incident: core dependency unavailable [OUT-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however core services are unavailable when the boundary condition is met (case #1020).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0092",
+    "title": "Primary API cluster unreachable [OUT-22]",
+    "description": "Observed in production. critical user workflows are down. Repro count: 4.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0093",
+    "title": "Background workers not processing jobs [OUT-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that requests fail for nearly all customers. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0094",
+    "title": "Customer portal shows 503 globally [OUT-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however production traffic cannot be served when the boundary condition is met (case #1023).",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0095",
+    "title": "Message queue outage in production [OUT-25]",
+    "description": "Observed in production. system availability is severely impacted. Repro count: 7.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0096",
+    "title": "Region us-east service hard down [OUT-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that core services are unavailable. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0097",
+    "title": "Webhook delivery halted for all tenants [OUT-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however critical user workflows are down when the boundary condition is met (case #1026).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0098",
+    "title": "Incident: core dependency unavailable [OUT-28]",
+    "description": "Observed in production. requests fail for nearly all customers. Repro count: 1.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0099",
+    "title": "Primary API cluster unreachable [OUT-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that production traffic cannot be served. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0100",
+    "title": "Background workers not processing jobs [OUT-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however system availability is severely impacted when the boundary condition is met (case #1029).",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0101",
+    "title": "Customer portal shows 503 globally [OUT-31]",
+    "description": "Observed in production. core services are unavailable. Repro count: 4.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0102",
+    "title": "Message queue outage in production [OUT-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that critical user workflows are down. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P0",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0103",
+    "title": "Region us-east service hard down [OUT-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however requests fail for nearly all customers when the boundary condition is met (case #1032).",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0104",
+    "title": "Webhook delivery halted for all tenants [OUT-34]",
+    "description": "Observed in production. production traffic cannot be served. Repro count: 7.",
+    "category": "Outage",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0105",
+    "title": "Incident: core dependency unavailable [OUT-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that system availability is severely impacted. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Outage",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0106",
+    "title": "Search endpoint latency spikes [PER-01]",
+    "description": "Observed in production. response times exceed SLA. Repro count: 1.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0107",
+    "title": "Dashboard takes 30s to load [PER-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users experience severe slowness. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0108",
+    "title": "Report export timing out intermittently [PER-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however timeouts increase during peak traffic when the boundary condition is met (case #1002).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0109",
+    "title": "High CPU on query service [PER-04]",
+    "description": "Observed in production. throughput drops under normal load. Repro count: 4.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0110",
+    "title": "Bulk sync job runs 4x slower [PER-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that performance degradation impacts operations. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0111",
+    "title": "API p95 latency regression after release [PER-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however response times exceed SLA when the boundary condition is met (case #1005).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0112",
+    "title": "Mobile app feed loads very slowly [PER-07]",
+    "description": "Observed in production. users experience severe slowness. Repro count: 7.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0113",
+    "title": "Search endpoint latency spikes [PER-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that timeouts increase during peak traffic. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0114",
+    "title": "Dashboard takes 30s to load [PER-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however throughput drops under normal load when the boundary condition is met (case #1008).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0115",
+    "title": "Report export timing out intermittently [PER-10]",
+    "description": "Observed in production. performance degradation impacts operations. Repro count: 1.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0116",
+    "title": "High CPU on query service [PER-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that response times exceed SLA. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0117",
+    "title": "Bulk sync job runs 4x slower [PER-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users experience severe slowness when the boundary condition is met (case #1011).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0118",
+    "title": "API p95 latency regression after release [PER-13]",
+    "description": "Observed in production. timeouts increase during peak traffic. Repro count: 4.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0119",
+    "title": "Mobile app feed loads very slowly [PER-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that throughput drops under normal load. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0120",
+    "title": "Search endpoint latency spikes [PER-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however performance degradation impacts operations when the boundary condition is met (case #1014).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0121",
+    "title": "Dashboard takes 30s to load [PER-16]",
+    "description": "Observed in production. response times exceed SLA. Repro count: 7.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0122",
+    "title": "Report export timing out intermittently [PER-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users experience severe slowness. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0123",
+    "title": "High CPU on query service [PER-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however timeouts increase during peak traffic when the boundary condition is met (case #1017).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0124",
+    "title": "Bulk sync job runs 4x slower [PER-19]",
+    "description": "Observed in production. throughput drops under normal load. Repro count: 1.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0125",
+    "title": "API p95 latency regression after release [PER-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that performance degradation impacts operations. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0126",
+    "title": "Mobile app feed loads very slowly [PER-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however response times exceed SLA when the boundary condition is met (case #1020).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0127",
+    "title": "Search endpoint latency spikes [PER-22]",
+    "description": "Observed in production. users experience severe slowness. Repro count: 4.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0128",
+    "title": "Dashboard takes 30s to load [PER-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that timeouts increase during peak traffic. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0129",
+    "title": "Report export timing out intermittently [PER-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however throughput drops under normal load when the boundary condition is met (case #1023).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0130",
+    "title": "High CPU on query service [PER-25]",
+    "description": "Observed in production. performance degradation impacts operations. Repro count: 7.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0131",
+    "title": "Bulk sync job runs 4x slower [PER-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that response times exceed SLA. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0132",
+    "title": "API p95 latency regression after release [PER-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users experience severe slowness when the boundary condition is met (case #1026).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0133",
+    "title": "Mobile app feed loads very slowly [PER-28]",
+    "description": "Observed in production. timeouts increase during peak traffic. Repro count: 1.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0134",
+    "title": "Search endpoint latency spikes [PER-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that throughput drops under normal load. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0135",
+    "title": "Dashboard takes 30s to load [PER-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however performance degradation impacts operations when the boundary condition is met (case #1029).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0136",
+    "title": "Report export timing out intermittently [PER-31]",
+    "description": "Observed in production. response times exceed SLA. Repro count: 4.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0137",
+    "title": "High CPU on query service [PER-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users experience severe slowness. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0138",
+    "title": "Bulk sync job runs 4x slower [PER-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however timeouts increase during peak traffic when the boundary condition is met (case #1032).",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0139",
+    "title": "API p95 latency regression after release [PER-34]",
+    "description": "Observed in production. throughput drops under normal load. Repro count: 7.",
+    "category": "Performance",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0140",
+    "title": "Mobile app feed loads very slowly [PER-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that performance degradation impacts operations. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Performance",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0141",
+    "title": "Potential SQL injection in filter endpoint [SEC-01]",
+    "description": "Observed in production. there is risk of unauthorized access. Repro count: 1.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0142",
+    "title": "Public bucket exposes customer logs [SEC-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that sensitive data may be exposed. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0143",
+    "title": "Suspicious login from impossible location [SEC-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however security controls appear bypassable when the boundary condition is met (case #1002).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0144",
+    "title": "Privilege escalation via role API [SEC-04]",
+    "description": "Observed in production. threat indicators require immediate triage. Repro count: 4.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0145",
+    "title": "Sensitive token appears in browser logs [SEC-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that compliance risk has increased. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0146",
+    "title": "Pen-test found CSRF bypass [SEC-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however there is risk of unauthorized access when the boundary condition is met (case #1005).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0147",
+    "title": "Unauthorized data access in audit report [SEC-07]",
+    "description": "Observed in production. sensitive data may be exposed. Repro count: 7.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0148",
+    "title": "Potential SQL injection in filter endpoint [SEC-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that security controls appear bypassable. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0149",
+    "title": "Public bucket exposes customer logs [SEC-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however threat indicators require immediate triage when the boundary condition is met (case #1008).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0150",
+    "title": "Suspicious login from impossible location [SEC-10]",
+    "description": "Observed in production. compliance risk has increased. Repro count: 1.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0151",
+    "title": "Privilege escalation via role API [SEC-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that there is risk of unauthorized access. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0152",
+    "title": "Sensitive token appears in browser logs [SEC-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however sensitive data may be exposed when the boundary condition is met (case #1011).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0153",
+    "title": "Pen-test found CSRF bypass [SEC-13]",
+    "description": "Observed in production. security controls appear bypassable. Repro count: 4.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0154",
+    "title": "Unauthorized data access in audit report [SEC-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that threat indicators require immediate triage. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0155",
+    "title": "Potential SQL injection in filter endpoint [SEC-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however compliance risk has increased when the boundary condition is met (case #1014).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0156",
+    "title": "Public bucket exposes customer logs [SEC-16]",
+    "description": "Observed in production. there is risk of unauthorized access. Repro count: 7.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0157",
+    "title": "Suspicious login from impossible location [SEC-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that sensitive data may be exposed. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0158",
+    "title": "Privilege escalation via role API [SEC-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however security controls appear bypassable when the boundary condition is met (case #1017).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0159",
+    "title": "Sensitive token appears in browser logs [SEC-19]",
+    "description": "Observed in production. threat indicators require immediate triage. Repro count: 1.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0160",
+    "title": "Pen-test found CSRF bypass [SEC-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that compliance risk has increased. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0161",
+    "title": "Unauthorized data access in audit report [SEC-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however there is risk of unauthorized access when the boundary condition is met (case #1020).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0162",
+    "title": "Potential SQL injection in filter endpoint [SEC-22]",
+    "description": "Observed in production. sensitive data may be exposed. Repro count: 4.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0163",
+    "title": "Public bucket exposes customer logs [SEC-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that security controls appear bypassable. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0164",
+    "title": "Suspicious login from impossible location [SEC-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however threat indicators require immediate triage when the boundary condition is met (case #1023).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0165",
+    "title": "Privilege escalation via role API [SEC-25]",
+    "description": "Observed in production. compliance risk has increased. Repro count: 7.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0166",
+    "title": "Sensitive token appears in browser logs [SEC-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that there is risk of unauthorized access. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0167",
+    "title": "Pen-test found CSRF bypass [SEC-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however sensitive data may be exposed when the boundary condition is met (case #1026).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0168",
+    "title": "Unauthorized data access in audit report [SEC-28]",
+    "description": "Observed in production. security controls appear bypassable. Repro count: 1.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0169",
+    "title": "Potential SQL injection in filter endpoint [SEC-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that threat indicators require immediate triage. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0170",
+    "title": "Public bucket exposes customer logs [SEC-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however compliance risk has increased when the boundary condition is met (case #1029).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0171",
+    "title": "Suspicious login from impossible location [SEC-31]",
+    "description": "Observed in production. there is risk of unauthorized access. Repro count: 4.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0172",
+    "title": "Privilege escalation via role API [SEC-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that sensitive data may be exposed. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P1",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0173",
+    "title": "Sensitive token appears in browser logs [SEC-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however security controls appear bypassable when the boundary condition is met (case #1032).",
+    "category": "Security",
+    "severity": "P1",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0174",
+    "title": "Pen-test found CSRF bypass [SEC-34]",
+    "description": "Observed in production. threat indicators require immediate triage. Repro count: 7.",
+    "category": "Security",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0175",
+    "title": "Unauthorized data access in audit report [SEC-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that compliance risk has increased. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Security",
+    "severity": "P0",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0176",
+    "title": "Add dark mode for dashboard [FEA-01]",
+    "description": "Observed in production. customers are asking for improved usability. Repro count: 1.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0177",
+    "title": "Need bulk ticket export to CSV [FEA-02]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that teams need this to reduce manual work. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0178",
+    "title": "Support custom SLA per team [FEA-03]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however current workflow is functional but limited when the boundary condition is met (case #1002).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0179",
+    "title": "Request webhook retry configuration [FEA-04]",
+    "description": "Observed in production. request aims to improve productivity. Repro count: 4.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0180",
+    "title": "Add keyboard shortcuts in agent console [FEA-05]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that enhancement would improve adoption. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0181",
+    "title": "Expose API for custom routing rules [FEA-06]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however customers are asking for improved usability when the boundary condition is met (case #1005).",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0182",
+    "title": "Allow saved filters per user [FEA-07]",
+    "description": "Observed in production. teams need this to reduce manual work. Repro count: 7.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0183",
+    "title": "Add dark mode for dashboard [FEA-08]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that current workflow is functional but limited. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0184",
+    "title": "Need bulk ticket export to CSV [FEA-09]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however request aims to improve productivity when the boundary condition is met (case #1008).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0185",
+    "title": "Support custom SLA per team [FEA-10]",
+    "description": "Observed in production. enhancement would improve adoption. Repro count: 1.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0186",
+    "title": "Request webhook retry configuration [FEA-11]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that customers are asking for improved usability. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0187",
+    "title": "Add keyboard shortcuts in agent console [FEA-12]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however teams need this to reduce manual work when the boundary condition is met (case #1011).",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0188",
+    "title": "Expose API for custom routing rules [FEA-13]",
+    "description": "Observed in production. current workflow is functional but limited. Repro count: 4.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0189",
+    "title": "Allow saved filters per user [FEA-14]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that request aims to improve productivity. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0190",
+    "title": "Add dark mode for dashboard [FEA-15]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however enhancement would improve adoption when the boundary condition is met (case #1014).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0191",
+    "title": "Need bulk ticket export to CSV [FEA-16]",
+    "description": "Observed in production. customers are asking for improved usability. Repro count: 7.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0192",
+    "title": "Support custom SLA per team [FEA-17]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that teams need this to reduce manual work. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0193",
+    "title": "Request webhook retry configuration [FEA-18]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however current workflow is functional but limited when the boundary condition is met (case #1017).",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0194",
+    "title": "Add keyboard shortcuts in agent console [FEA-19]",
+    "description": "Observed in production. request aims to improve productivity. Repro count: 1.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0195",
+    "title": "Expose API for custom routing rules [FEA-20]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that enhancement would improve adoption. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0196",
+    "title": "Allow saved filters per user [FEA-21]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however customers are asking for improved usability when the boundary condition is met (case #1020).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0197",
+    "title": "Add dark mode for dashboard [FEA-22]",
+    "description": "Observed in production. teams need this to reduce manual work. Repro count: 4.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0198",
+    "title": "Need bulk ticket export to CSV [FEA-23]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that current workflow is functional but limited. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0199",
+    "title": "Support custom SLA per team [FEA-24]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however request aims to improve productivity when the boundary condition is met (case #1023).",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0200",
+    "title": "Request webhook retry configuration [FEA-25]",
+    "description": "Observed in production. enhancement would improve adoption. Repro count: 7.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0201",
+    "title": "Add keyboard shortcuts in agent console [FEA-26]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that customers are asking for improved usability. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0202",
+    "title": "Expose API for custom routing rules [FEA-27]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however teams need this to reduce manual work when the boundary condition is met (case #1026).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "chat"
+  },
+  {
+    "ticket_id": "v1-0203",
+    "title": "Allow saved filters per user [FEA-28]",
+    "description": "Observed in production. current workflow is functional but limited. Repro count: 1.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "web"
+  },
+  {
+    "ticket_id": "v1-0204",
+    "title": "Add dark mode for dashboard [FEA-29]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that request aims to improve productivity. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "mobile"
+  },
+  {
+    "ticket_id": "v1-0205",
+    "title": "Need bulk ticket export to CSV [FEA-30]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however enhancement would improve adoption when the boundary condition is met (case #1029).",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "api"
+  },
+  {
+    "ticket_id": "v1-0206",
+    "title": "Support custom SLA per team [FEA-31]",
+    "description": "Observed in production. customers are asking for improved usability. Repro count: 4.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "ops"
+  },
+  {
+    "ticket_id": "v1-0207",
+    "title": "Request webhook retry configuration [FEA-32]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that teams need this to reduce manual work. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "support"
+  },
+  {
+    "ticket_id": "v1-0208",
+    "title": "Add keyboard shortcuts in agent console [FEA-33]",
+    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however current workflow is functional but limited when the boundary condition is met (case #1032).",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "security"
+  },
+  {
+    "ticket_id": "v1-0209",
+    "title": "Expose API for custom routing rules [FEA-34]",
+    "description": "Observed in production. request aims to improve productivity. Repro count: 7.",
+    "category": "Feature Request",
+    "severity": "P3",
+    "source": "email"
+  },
+  {
+    "ticket_id": "v1-0210",
+    "title": "Allow saved filters per user [FEA-35]",
+    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that enhancement would improve adoption. Issue started after a recent deployment and persists despite cache clears.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "chat"
+  }
+]

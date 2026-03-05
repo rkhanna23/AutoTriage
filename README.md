@@ -102,3 +102,26 @@ Change `OLLAMA_MODEL` in your `.env` (or `docker-compose.yml`) to any model from
 | 4 | Enterprise Routing Engine |
 | 5 | Dashboard + QoS testing |
 | 6 | Final delivery |
+
+## Classifier Baseline (CP2-SA-02/03/04)
+
+The classifier now returns a strict structured schema with both `category` and `severity`.
+
+```json
+{
+  "ticket_id": "string",
+  "category": "Auth|Billing|Outage|Performance|Security|Feature Request|Unknown",
+  "severity": "P0|P1|P2|P3|Unknown",
+  "confidence": 0.0,
+  "model_version": "string",
+  "prompt_version": "v1.0"
+}
+```
+
+Run baseline evaluation and write results to `evaluation/checkpoint2_baseline.json`:
+
+```bash
+python -m evaluation.run_baseline \
+  --dataset data/ticket_dataset_v1.json \
+  --output evaluation/checkpoint2_baseline.json
+```
