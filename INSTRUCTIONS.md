@@ -32,20 +32,26 @@ AutoTriage/
 │   │   ├── requirements.txt
 │   │   └── Dockerfile
 │   ├── classifier/          # LLM-based ticket classifier (Ollama, free/local)
-│   │   ├── main.py          # FastAPI wrapper: POST /classify
+│   │   ├── main.py          # FastAPI wrapper: POST /classify (category + severity)
 │   │   ├── classifier.py    # TicketClassifier class (calls Ollama API)
 │   │   ├── prompts/
-│   │   │   └── v1.0.txt     # Prompt template with version tag
+│   │   │   ├── v1.0.txt     # Active prompt template (category + severity)
+│   │   │   └── registry.json # Prompt version tracking
 │   │   ├── requirements.txt
 │   │   └── Dockerfile
 │   └── router/              # Routing engine — coming in CP4
-├── data/                    # Labeled ticket datasets — coming in CP2 (Karen)
-├── evaluation/              # Accuracy benchmarks — coming in CP2/CP3 (Karen/Saahiti)
+├── data/                    # Labeled ticket datasets (KL-01)
+│   ├── ticket_dataset_v1.csv
+│   └── ticket_dataset_v1.json  # 210 synthetic tickets, balanced across 6 categories
+├── evaluation/              # Baseline benchmarks (SA-04)
+│   ├── run_baseline.py      # Runs classifier over dataset, outputs metrics JSON
+│   └── checkpoint2_baseline.json  # Results: category/severity accuracy, per-class precision/recall
 ├── dashboard/               # React/Streamlit dashboard — coming in CP3 (Karen)
 ├── docs/
 │   └── openapi.json         # Auto-generated OpenAPI 3.1 spec for the intake service
 ├── tests/
-│   └── test_intake.py       # 15 integration tests for the intake service (all passing)
+│   ├── test_intake.py       # 15 integration tests for the intake service
+│   └── test_classifier.py   # Classifier integration tests
 ├── docker-compose.yml       # Full stack: PostgreSQL + intake + Ollama + classifier
 ├── .env.example             # Environment variable reference (no secrets)
 └── INSTRUCTIONS.md          # This file
@@ -75,7 +81,8 @@ AutoTriage/
 ```bash
 git clone https://github.com/rkhanna23/AutoTriage
 cd AutoTriage
-cp .env.example .env          # No edits needed to get started
+cp .env.example .env
+# Edit .env: set POSTGRES_PASSWORD (any value for local dev, e.g. change_me_before_use)
 docker compose up --build
 ```
 
@@ -105,11 +112,17 @@ uvicorn services.classifier.main:app --reload --port 8001
 
 ## How to Test
 
-### Automated tests (intake service)
+### Automated tests
 
 ```bash
+# All tests
+pytest tests/ -v
+
+# Intake only (15 tests)
 pytest tests/test_intake.py -v
-# Expected: 15 passed
+
+# Classifier only
+pytest tests/test_classifier.py -v
 ```
 
 ### Manual API tests (intake)
@@ -158,7 +171,7 @@ curl -s -X POST http://localhost:8001/classify \
     "description": "Users cannot authenticate via SSO. Server returns 500 on /auth/login."
   }' | python3 -m json.tool
 
-# Expected response:
+# Expected response (SA-02/03 schema):
 # {
 #   "ticket_id": "test-001",
 #   "category": "Auth",
@@ -171,6 +184,19 @@ curl -s -X POST http://localhost:8001/classify \
 # Health check
 curl -s http://localhost:8001/health
 ```
+
+### Baseline evaluation (SA-04)
+
+Run the classifier over Dataset v1 and write metrics to `evaluation/checkpoint2_baseline.json`:
+
+```bash
+# Requires: Ollama running with model pulled (e.g. ollama pull llama3.1:8b)
+python -m evaluation.run_baseline \
+  --dataset data/ticket_dataset_v1.json \
+  --output evaluation/checkpoint2_baseline.json
+```
+
+Output includes `category_accuracy`, `severity_accuracy`, per-class precision/recall, and per-ticket predictions.
 
 ---
 
@@ -213,7 +239,11 @@ curl -s http://localhost:8001/health
 }
 ```
 
-**Categories returned:** `Auth`, `Billing`, `Outage`, `Performance`, `Security`, `Feature Request`
+**Response:** `ticket_id`, `category`, `severity`, `confidence`, `model_version`, `prompt_version`
+
+**Categories:** `Auth`, `Billing`, `Outage`, `Performance`, `Security`, `Feature Request`, `Unknown`
+
+**Severities:** `P0` (Critical), `P1` (High), `P2` (Medium), `P3` (Low), `Unknown`
 
 ---
 
@@ -225,7 +255,7 @@ curl -s http://localhost:8001/health
 | `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama API endpoint |
 | `DATABASE_URL` | `sqlite:///./autotriage.db` | Auto-set in local dev; PostgreSQL URL in Docker |
 | `POSTGRES_USER` | `autotriage` | Docker only |
-| `POSTGRES_PASSWORD` | `autotriage` | Docker only |
+| `POSTGRES_PASSWORD` | *(required)* | Must be set in `.env` for Docker; copy from `.env.example` |
 
 ### Supported LLM models (set via OLLAMA_MODEL)
 
@@ -249,13 +279,13 @@ curl -s http://localhost:8001/health
 | CP2-RK-04 | Ronit | Done | 15 integration tests + OpenAPI docs |
 | CP2-RK-05 | Ronit | Done | Docker + docker-compose + README |
 | CP2-SA-01 | Saahiti | Done | Zero-shot category classifier |
-| CP2-SA-02 | Saahiti | Done | Severity prediction (P0–P3) added to classifier output |
-| CP2-SA-03 | Saahiti | Done | Structured output schema + prompt registry/versioning (v1.0 active) |
-| CP2-SA-04 | Saahiti | Done | Baseline benchmark runner + output artifact in `/evaluation` |
-| CP2-KL-01 | Karen | Done | Ticket Dataset v1 generated (210 synthetic labeled tickets, balanced) |
-| CP2-KL-02 | Karen | Pending | Real-world ticket examples |
+| CP2-SA-02 | Saahiti | Done | Severity prediction (P0–P3) in classifier output |
+| CP2-SA-03 | Saahiti | Done | Structured schema + prompt registry (`prompts/registry.json`) |
+| CP2-SA-04 | Saahiti | Done | `evaluation/run_baseline.py` + `checkpoint2_baseline.json` |
+| CP2-KL-01 | Karen | Done | Dataset v1: `data/ticket_dataset_v1.csv` + `.json` (210 tickets) |
+| CP2-KL-02 | Karen | Pending | Real-world examples + `data/README.md` |
 | CP2-KL-03 | Karen | Pending | Dashboard scaffold |
-| CP2-KL-04 | Karen | Pending | Evaluation harness (run_eval.py) |
+| CP2-KL-04 | Karen | Done | Evaluation logic in `run_baseline.py` (accuracy, precision, recall per class) |
 
 ---
 
@@ -265,8 +295,8 @@ If you are an LLM reading this file to help with the project:
 
 - **Adding a new endpoint** → edit `services/intake/main.py`, add a Pydantic schema in `schemas.py` if needed, and add tests in `tests/test_intake.py`
 - **Changing the classifier model** → set `OLLAMA_MODEL` in `.env` or `docker-compose.yml`; no code changes needed
-- **Extending the classifier** (SA-02 severity) → edit `services/classifier/classifier.py` and update the prompt in `services/classifier/prompts/`; add a new version entry in `prompts/registry.json`
-- **Adding the dataset** (KL-01) → place CSV/JSON in `data/` with columns: `title`, `description`, `category`, `severity`, `source`
-- **Running evaluation** (SA-04/KL-04) → `evaluation/run_eval.py` will be added by Karen; it expects a labeled dataset in `data/` and classifier output
+- **Updating the classifier prompt** → edit `services/classifier/prompts/v1.0.txt` (or add v1.1); register in `prompts/registry.json`
+- **Adding dataset rows** → append to `data/ticket_dataset_v1.csv` or `.json` with columns: `ticket_id`, `title`, `description`, `category`, `severity`, `source`
+- **Running evaluation** → `python -m evaluation.run_baseline --dataset data/ticket_dataset_v1.json --output evaluation/checkpoint2_baseline.json` (requires Ollama + model)
 - **Database migrations** → SQLAlchemy creates tables automatically on startup via `Base.metadata.create_all()`; for schema changes add an Alembic migration
-- **The intake and classifier services are independent** — the intake service has no dependency on the classifier; they communicate only when explicitly wired together (CP3+)
+- **The intake and classifier services are independent** — they communicate only when explicitly wired (e.g. for CP3 pipeline)
