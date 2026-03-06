@@ -1,0 +1,28 @@
+name: Evaluation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  run-eval:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r services/classifier/requirements.txt || true
+          pip install scikit-learn pandas
+
+      - name: Run evaluation
+        run: |
+          python -m evaluation.run_baseline --dataset data/ticket_dataset_v1.json --output evaluation/checkpoint2_baseline.json
