@@ -40,13 +40,19 @@ AutoTriage/
 │   │   ├── requirements.txt
 │   │   └── Dockerfile
 │   └── router/              # Routing engine — coming in CP4
-├── data/                    # Labeled ticket datasets (KL-01)
+├── data/                    # Labeled ticket datasets (KL-01, KL-02)
 │   ├── ticket_dataset_v1.csv
-│   └── ticket_dataset_v1.json  # 210 synthetic tickets, balanced across 6 categories
-├── evaluation/              # Baseline benchmarks (SA-04)
+│   ├── ticket_dataset_v1.json  # 210 tickets (synthetic + real-world)
+│   └── README.md            # Dataset docs, sources (Supabase, K8s, Redis, Stripe, Firebase)
+├── evaluation/              # Baseline benchmarks (SA-04, KL-04)
 │   ├── run_baseline.py      # Runs classifier over dataset, outputs metrics JSON
+│   ├── run_eval.py          # Wrapper that invokes run_baseline
 │   └── checkpoint2_baseline.json  # Results: category/severity accuracy, per-class precision/recall
-├── dashboard/               # React/Streamlit dashboard — coming in CP3 (Karen)
+├── .github/workflows/
+│   └── eval.yml             # GitHub Actions: runs evaluation on push/PR to main
+├── dashboard/               # Streamlit dashboard (KL-03)
+│   ├── app.py               # Ticket count by category, recent tickets, classifier status, baseline metrics
+│   └── requirements.txt
 ├── docs/
 │   └── openapi.json         # Auto-generated OpenAPI 3.1 spec for the intake service
 ├── tests/
@@ -196,7 +202,18 @@ python -m evaluation.run_baseline \
   --output evaluation/checkpoint2_baseline.json
 ```
 
-Output includes `category_accuracy`, `severity_accuracy`, per-class precision/recall, and per-ticket predictions.
+Output includes `category_accuracy`, `severity_accuracy`, per-class precision/recall, and per-ticket predictions. Expect ~10–30 minutes for 210 tickets (one LLM call per ticket). Latest run: **99.52%** category accuracy, **44.29%** severity accuracy.
+
+### Dashboard (KL-03)
+
+With the intake API (and optionally the classifier) running:
+
+```bash
+pip install -r dashboard/requirements.txt
+streamlit run dashboard/app.py
+```
+
+Open http://localhost:8501. Shows: ticket count by category (bar chart), recent tickets table, classifier status, and latest baseline metrics if `evaluation/checkpoint2_baseline.json` exists. The bar chart requires categorized data (e.g. from the dataset fallback or classified tickets); live API tickets do not include `category` until classified.
 
 ---
 
@@ -283,9 +300,9 @@ Output includes `category_accuracy`, `severity_accuracy`, per-class precision/re
 | CP2-SA-03 | Saahiti | Done | Structured schema + prompt registry (`prompts/registry.json`) |
 | CP2-SA-04 | Saahiti | Done | `evaluation/run_baseline.py` + `checkpoint2_baseline.json` |
 | CP2-KL-01 | Karen | Done | Dataset v1: `data/ticket_dataset_v1.csv` + `.json` (210 tickets) |
-| CP2-KL-02 | Karen | Pending | Real-world examples + `data/README.md` |
-| CP2-KL-03 | Karen | Pending | Dashboard scaffold |
-| CP2-KL-04 | Karen | Done | Evaluation logic in `run_baseline.py` (accuracy, precision, recall per class) |
+| CP2-KL-02 | Karen | Done | Real-world examples + `data/README.md` (sources: Supabase, K8s, Redis, Stripe, Firebase) |
+| CP2-KL-03 | Karen | Done | Streamlit dashboard: bar chart, recent tickets, classifier status, baseline metrics |
+| CP2-KL-04 | Karen | Done | `run_eval.py` + GitHub Actions (`.github/workflows/eval.yml`) |
 
 ---
 
