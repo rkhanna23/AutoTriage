@@ -4,36 +4,10 @@ Covers all endpoints: POST /tickets, GET /tickets, GET /tickets/{id}
 Happy path + error cases. Requires at least 12 tests.
 """
 import pytest
-from datetime import datetime, timezone
 from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 from services.intake.main import app
-from services.intake.database import Base, get_db
-
-# ---------------------------------------------------------------------------
-# Test database setup — isolated in-memory SQLite for each test session
-# ---------------------------------------------------------------------------
-
-TEST_DB_URL = "sqlite:///./test_autotriage.db"
-test_engine = create_engine(TEST_DB_URL, connect_args={"check_same_thread": False})
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=test_engine)
-
-
-def override_get_db():
-    db = TestingSessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-app.dependency_overrides[get_db] = override_get_db
-
-Base.metadata.create_all(bind=test_engine)
-
-client = TestClient(app)
+from tests.conftest import client
 
 # ---------------------------------------------------------------------------
 # Fixtures
@@ -47,12 +21,6 @@ VALID_PAYLOAD = {
 }
 
 
-@pytest.fixture(autouse=True)
-def reset_db():
-    """Wipe and recreate tables before every test for isolation."""
-    Base.metadata.drop_all(bind=test_engine)
-    Base.metadata.create_all(bind=test_engine)
-    yield
 
 
 # ---------------------------------------------------------------------------

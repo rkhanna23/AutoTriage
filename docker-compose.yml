@@ -41,8 +41,14 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      classifier:
+        condition: service_started
+      router:
+        condition: service_started
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER:-autotriage}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-autotriage}
+      CLASSIFIER_SERVICE_URL: http://classifier:8001
+      ROUTER_SERVICE_URL: http://router:8002
       PYTHONPATH: /app
     ports:
       - "8000:8000"
@@ -98,6 +104,20 @@ services:
       - "8001:8001"
     volumes:
       - ./services/classifier:/app/services/classifier
+
+  # ── Router Service (CP3-RK-02) ─────────────────────────────────────────────
+  router:
+    build:
+      context: .
+      dockerfile: services/router/Dockerfile
+    container_name: autotriage_router
+    restart: unless-stopped
+    environment:
+      PYTHONPATH: /app
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./services/router:/app/services/router
 
 volumes:
   postgres_data:
