@@ -2,7 +2,7 @@
 
 **Project:** AutoTriage: AI-Assisted Enterprise Ticket Classification and Routing
 **Group:** Ronit Khanna, Saahiti Andhavarapu, Karen Lu
-**Checkpoint:** 2 (Platform Bring-Up)
+**Checkpoint:** 3 (Classifier–Intake Integration, Routing Engine)
 
 This file is intended to be ingested by an LLM (Claude, GPT, Gemini, etc.) to understand
 how to build, run, test, and extend this project. Keep it up to date as new checkpoints land.
@@ -14,7 +14,7 @@ how to build, run, test, and extend this project. Keep it up to date as new chec
 AutoTriage is a microservice pipeline that:
 1. **Ingests** support tickets via a REST API (`services/intake`)
 2. **Classifies** them into categories and severity levels using a local LLM (`services/classifier`)
-3. **Routes** them to the correct response queue (`services/router` — CP4)
+3. **Routes** them to the correct response queue (`services/router` — CP3-RK-02)
 4. **Visualizes** results on a dashboard (`dashboard/` — CP5)
 
 ---
@@ -39,7 +39,10 @@ AutoTriage/
 │   │   │   └── registry.json # Prompt version tracking
 │   │   ├── requirements.txt
 │   │   └── Dockerfile
-│   └── router/              # Routing engine — coming in CP4
+│   ├── router/              # Routing engine (CP3-RK-02): POST /route, GET /routes
+│   │   ├── main.py
+│   │   ├── routing_rules.json
+│   │   └── Dockerfile
 ├── data/                    # Labeled ticket datasets (KL-01, KL-02)
 │   ├── ticket_dataset_v1.csv
 │   ├── ticket_dataset_v1.json  # 210 tickets (synthetic + real-world)
@@ -56,7 +59,10 @@ AutoTriage/
 ├── docs/
 │   └── openapi.json         # Auto-generated OpenAPI 3.1 spec for the intake service
 ├── tests/
-│   ├── test_intake.py       # 15 integration tests for the intake service
+│   ├── conftest.py          # Shared test DB and fixtures
+│   ├── test_intake.py       # Intake integration tests
+│   ├── test_pipeline_integration.py  # CP3-RK-05: pipeline + router integration tests
+│   ├── test_router.py       # Router service tests
 │   └── test_classifier.py   # Classifier integration tests
 ├── docker-compose.yml       # Full stack: PostgreSQL + intake + Ollama + classifier
 ├── .env.example             # Environment variable reference (no secrets)
@@ -97,8 +103,36 @@ This starts:
 - **Intake API** on port 8000 (Swagger UI at http://localhost:8000/docs)
 - **Ollama** on port 11434 (pulls the model automatically on first run)
 - **Classifier** on port 8001
+- **Router** on port 8002 (CP3-RK-02)
 
 > First run pulls the LLM model (~5 GB for llama3.1:8b). Subsequent runs use the cached version.
+
+### CP3 Build, Run, Test Guide
+
+**Full pipeline (submit → store → classify → route):**
+1. `docker compose up --build` — starts db, intake, ollama, classifier, router
+2. POST /tickets — creates ticket, auto-classifies via classifier:8001, auto-routes via router:8002
+3. GET /tickets/:id — returns ticket with classification, routing, latency
+4. GET /metrics/latency?n=100 — p50/p95/p99 for intake_ms, classify_ms, route_ms, total_ms
+
+**Local dev (all three services):**
+```bash
+# Terminal 1: Intake (requires classifier + router URLs)
+CLASSIFIER_SERVICE_URL=http://localhost:8001 ROUTER_SERVICE_URL=http://localhost:8002 \
+  uvicorn services.intake.main:app --reload --port 8000
+
+# Terminal 2: Classifier
+uvicorn services.classifier.main:app --reload --port 8001
+
+# Terminal 3: Router
+uvicorn services.router.main:app --reload --port 8002
+```
+
+**Run all tests (no services required):**
+```bash
+pip install -r services/intake/requirements.txt -r services/router/requirements.txt
+pytest tests/ -v
+```
 
 ### Option B — Local dev (no Docker, uses SQLite)
 
@@ -286,6 +320,48 @@ Open http://localhost:8501. Shows: ticket count by category (bar chart), recent 
 
 ---
 
+## CP3 Build, Run, Test Guide
+
+**Full pipeline:** submit ticket → auto-classify → auto-route. All three services (intake, classifier, router) must run.
+
+### Docker (recommended)
+
+```bash
+docker compose up --build
+# Intake: http://localhost:8000
+# Classifier: http://localhost:8001
+# Router: http://localhost:8002
+```
+
+### Local dev (no Docker)
+
+```bash
+# Terminal 1: Intake
+pip install -r services/intake/requirements.txt
+uvicorn services.intake.main:app --reload --port 8000
+
+# Terminal 2: Classifier (requires Ollama: ollama pull llama3.1:8b)
+pip install -r services/classifier/requirements.txt
+uvicorn services.classifier.main:app --reload --port 8001
+
+# Terminal 3: Router
+pip install -r services/router/requirements.txt
+uvicorn services.router.main:app --reload --port 8002
+```
+
+Set `CLASSIFIER_SERVICE_URL=http://localhost:8001` and `ROUTER_SERVICE_URL=http://localhost:8002` for intake.
+
+### Run tests
+
+```bash
+pip install -r services/intake/requirements.txt -r services/router/requirements.txt
+pytest tests/ -v
+```
+
+Integration tests mock the classifier/router, so they pass without running those services.
+
+---
+
 ## Checkpoint Status
 
 | Ticket | Owner | Status | Description |
@@ -303,6 +379,54 @@ Open http://localhost:8501. Shows: ticket count by category (bar chart), recent 
 | CP2-KL-02 | Karen | Done | Real-world examples + `data/README.md` (sources: Supabase, K8s, Redis, Stripe, Firebase) |
 | CP2-KL-03 | Karen | Done | Streamlit dashboard: bar chart, recent tickets, classifier status, baseline metrics |
 | CP2-KL-04 | Karen | Done | `run_eval.py` + GitHub Actions (`.github/workflows/eval.yml`) |
+| CP3-RK-01 | Ronit | Done | Integrate classifier into intake pipeline (auto-classify on submit) |
+| CP3-RK-02 | Ronit | Done | Routing engine data model and API (POST /route, GET /routes) |
+| CP3-RK-03 | Ronit | Done | Wire routing into intake–classify pipeline |
+| CP3-RK-04 | Ronit | Done | Latency instrumentation and GET /metrics/latency |
+| CP3-RK-05 | Ronit | Done | Integration tests for pipeline and router |
+
+---
+
+## CP3 Build, Run, Test Guide
+
+The full pipeline is: **submit → store → classify → route → update ticket**.
+
+### Docker (all three services)
+
+```bash
+docker compose up --build
+# Intake: http://localhost:8000
+# Classifier: http://localhost:8001
+# Router: http://localhost:8002
+```
+
+### Local dev (no Docker)
+
+```bash
+# Terminal 1: Intake
+pip install -r services/intake/requirements.txt
+uvicorn services.intake.main:app --reload --port 8000
+
+# Terminal 2: Classifier (requires Ollama)
+ollama pull llama3.1:8b
+pip install -r services/classifier/requirements.txt
+uvicorn services.classifier.main:app --reload --port 8001
+
+# Terminal 3: Router
+pip install -r services/router/requirements.txt
+uvicorn services.router.main:app --reload --port 8002
+```
+
+Set `CLASSIFIER_SERVICE_URL=http://localhost:8001` and `ROUTER_SERVICE_URL=http://localhost:8002` when running intake locally.
+
+### Run tests
+
+```bash
+pip install -r services/intake/requirements.txt -r services/router/requirements.txt
+pytest tests/ -v
+```
+
+Integration tests mock the classifier and router, so they pass without those services running.
 
 ---
 
