@@ -2,10 +2,10 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+COPY services/intake/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/services/intake/
+COPY . /app/
 
 ENV DATABASE_URL=postgresql://autotriage:autotriage@db:5432/autotriage
 ENV PYTHONPATH=/app

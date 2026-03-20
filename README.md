@@ -45,6 +45,7 @@ docker compose up --build
 #   Intake API  →  http://localhost:8000
 #   Swagger UI  →  http://localhost:8000/docs
 #   Classifier  →  http://localhost:8001
+#   Router      →  http://localhost:8002
 #   Ollama      →  http://localhost:11434
 ```
 
