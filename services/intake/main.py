@@ -45,6 +45,7 @@ def _build_create_response(ticket: Ticket) -> TicketCreateResponse:
             confidence=ticket.confidence,
             model_version=ticket.model_version,
             prompt_version=ticket.prompt_version,
+            needs_review=bool(ticket.needs_review),
             classification_status=ticket.classification_status or "pending",
         )
     routing = None
@@ -111,12 +112,15 @@ def create_ticket(payload: TicketCreate, db: Session = Depends(get_db)):
     ticket.confidence = class_result.get("confidence")
     ticket.model_version = class_result.get("model_version") or ""
     ticket.prompt_version = class_result.get("prompt_version") or ""
+    ticket.needs_review = bool(class_result.get("needs_review", False))
     ticket.classify_ms = classify_ms
     ticket.intake_ms = intake_ms
 
     # CP3-RK-03: Call router
     route_result, route_ms, route_ok = pipeline_route(
-        ticket.id, ticket.category, ticket.severity
+        ticket.id,
+        None if ticket.needs_review else ticket.category,
+        None if ticket.needs_review else ticket.severity,
     )
     ticket.routing_status = "routed" if route_ok else "failed"
     ticket.assigned_team = route_result.get("assigned_team")

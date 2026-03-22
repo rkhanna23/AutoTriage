@@ -1,0 +1,3455 @@
+{
+  "checkpoint": "CP3-SA-04",
+  "generated_at": "2026-03-07T20:20:24.879746+00:00",
+  "dataset": {
+    "path": "data/ticket_dataset_v1.json",
+    "total_tickets": 210
+  },
+  "metrics": {
+    "category_accuracy": 0.9952,
+    "severity_accuracy": 0.4429,
+    "target_category_accuracy": 0.7,
+    "meets_target": true,
+    "low_confidence_count": 0,
+    "low_confidence_rate": 0.0,
+    "category_per_class": {
+      "Auth": {
+        "precision": 0.9722,
+        "recall": 1.0,
+        "support": 35
+      },
+      "Billing": {
+        "precision": 1.0,
+        "recall": 0.9714,
+        "support": 35
+      },
+      "Outage": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 35
+      },
+      "Performance": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 35
+      },
+      "Security": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 35
+      },
+      "Feature Request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 35
+      }
+    },
+    "severity_per_class": {
+      "P0": {
+        "precision": 0.4576,
+        "recall": 0.7941,
+        "support": 34
+      },
+      "P1": {
+        "precision": 0.3636,
+        "recall": 0.25,
+        "support": 64
+      },
+      "P2": {
+        "precision": 0.3836,
+        "recall": 0.4308,
+        "support": 65
+      },
+      "P3": {
+        "precision": 0.6471,
+        "recall": 0.4681,
+        "support": 47
+      }
+    },
+    "target_severity_accuracy": 0.7,
+    "needs_review_count": 0,
+    "needs_review_rate": 0.0,
+    "expected_calibration_error": 0.4584,
+    "confidence_distribution": {
+      "overall": {
+        "min": 0.8,
+        "max": 0.99,
+        "mean": 0.9012
+      },
+      "correct": {
+        "min": 0.8,
+        "max": 0.99,
+        "mean": 0.904
+      },
+      "incorrect": {
+        "min": 0.8,
+        "max": 0.95,
+        "mean": 0.8991
+      }
+    }
+  },
+  "predictions": [
+    {
+      "ticket_id": "v1-0001",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0002",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0003",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0004",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0005",
+      "source": "support",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0006",
+      "source": "security",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0007",
+      "source": "email",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0008",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0009",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0010",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0011",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0012",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0013",
+      "source": "support",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0014",
+      "source": "security",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0015",
+      "source": "email",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0016",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0017",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0018",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0019",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0020",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0021",
+      "source": "support",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0022",
+      "source": "security",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0023",
+      "source": "email",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0024",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0025",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0026",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0027",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0028",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0029",
+      "source": "support",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0030",
+      "source": "security",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0031",
+      "source": "email",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0032",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0033",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0034",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0035",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0036",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0037",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0038",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0039",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0040",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0041",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0042",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0043",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0044",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0045",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0046",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0047",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0048",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0049",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0050",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0051",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0052",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0053",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0054",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0055",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0056",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0057",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0058",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0059",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0060",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0061",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0062",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0063",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0064",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0065",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0066",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0067",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0068",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0069",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0070",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0071",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0072",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0073",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0074",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0075",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0076",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0077",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0078",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0079",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0080",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0081",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0082",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0083",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0084",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0085",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0086",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0087",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0088",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0089",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.99,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0090",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0091",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0092",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0093",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0094",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0095",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0096",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0097",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0098",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0099",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0100",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0101",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0102",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0103",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0104",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0105",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0106",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0107",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0108",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0109",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0110",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0111",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0112",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0113",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0114",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0115",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0116",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0117",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0118",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0119",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0120",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0121",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.9,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0122",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0123",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0124",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0125",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0126",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0127",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0128",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0129",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0130",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0131",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0132",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0133",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0134",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0135",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0136",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0137",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0138",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0139",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0140",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0141",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0142",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0143",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0144",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0145",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0146",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0147",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0148",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0149",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0150",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0151",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0152",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0153",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0154",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0155",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0156",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0157",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0158",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0159",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0160",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0161",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0162",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0163",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0164",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0165",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0166",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0167",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0168",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0169",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0170",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0171",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0172",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0173",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0174",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0175",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0176",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0177",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0178",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0179",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0180",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0181",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0182",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0183",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.85,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0184",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0185",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0186",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0187",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0188",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0189",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0190",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0191",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0192",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0193",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0194",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0195",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0196",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0197",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0198",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.9,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0199",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0200",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0201",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0202",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0203",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0204",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0205",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0206",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.8,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0207",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0208",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0209",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.92,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-0210",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.95,
+        "model_version": "llama3.1:8b",
+        "prompt_version": "v1.0",
+        "needs_review": false
+      }
+    }
+  ],
+  "prompt_version": "v1.0",
+  "confidence_threshold": 0.65
+}

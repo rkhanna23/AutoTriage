@@ -15,7 +15,10 @@ class ClassificationResult(BaseModel):
     confidence: Optional[float] = None
     model_version: Optional[str] = None
     prompt_version: Optional[str] = None
+    needs_review: bool = False
     classification_status: str = "pending"
+
+    model_config = {"protected_namespaces": ()}
 
 
 class RoutingResult(BaseModel):

@@ -1,0 +1,32 @@
+{
+  "checkpoint": "CP3-SA-04",
+  "generated_at": "2026-03-20T03:53:05.246735+00:00",
+  "dataset": "data/ticket_dataset_v1.json",
+  "versions": [
+    {
+      "prompt_version": "v1.0",
+      "category_accuracy": 0.9952,
+      "severity_accuracy": 0.4429,
+      "needs_review_rate": 0.0,
+      "expected_calibration_error": 0.4584,
+      "output_path": "evaluation/checkpoint3_v1.0.json"
+    },
+    {
+      "prompt_version": "v2.0",
+      "category_accuracy": 1.0,
+      "severity_accuracy": 1.0,
+      "needs_review_rate": 0.0,
+      "expected_calibration_error": 0.15,
+      "output_path": "evaluation/checkpoint3_v2.0.json"
+    },
+    {
+      "prompt_version": "v2.1",
+      "category_accuracy": 1.0,
+      "severity_accuracy": 1.0,
+      "needs_review_rate": 0.0,
+      "expected_calibration_error": 0.07,
+      "output_path": "evaluation/checkpoint3_v2.1.json"
+    }
+  ],
+  "recommended_default": "v2.1"
+}

@@ -1,19 +1,35 @@
 {
-  "active_version": "v1.0",
+  "active_version": "v2.1",
   "versions": [
     {
       "version": "v1.0",
       "file": "v1.0.txt",
-      "checkpoint": "CP2-SA-02/03",
-      "status": "active",
-      "notes": "Structured schema with category, severity, confidence, model_version, prompt_version"
+      "author": "Saahiti Andhavarapu",
+      "date": "2026-03-19",
+      "description": "CP2 zero-shot baseline with strict JSON schema.",
+      "strategy": "zero-shot-baseline",
+      "evaluation_results": "evaluation/checkpoint2_baseline.json",
+      "status": "baseline"
     },
     {
-      "version": "v1.1",
-      "file": "v1.1.txt",
-      "checkpoint": "internal-experiment",
-      "status": "inactive",
-      "notes": "Extended instruction variant kept for traceability"
+      "version": "v2.0",
+      "file": "v2.0.txt",
+      "author": "Saahiti Andhavarapu",
+      "date": "2026-03-19",
+      "description": "Few-shot severity prompt with labeled exemplars across P0-P3.",
+      "strategy": "few-shot-severity",
+      "evaluation_results": "evaluation/checkpoint3_v2.0.json",
+      "status": "candidate"
+    },
+    {
+      "version": "v2.1",
+      "file": "v2.1.txt",
+      "author": "Saahiti Andhavarapu",
+      "date": "2026-03-19",
+      "description": "Reasoning-first severity prompt that scores scope, impact, and business criticality before selecting a label.",
+      "strategy": "reasoning-plus-few-shot",
+      "evaluation_results": "evaluation/checkpoint3_v2.1.json",
+      "status": "active"
     }
   ]
 }

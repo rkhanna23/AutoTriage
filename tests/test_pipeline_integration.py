@@ -33,6 +33,7 @@ def test_submit_ticket_gets_auto_classified():
             "confidence": 0.92,
             "model_version": "llama3.1:8b",
             "prompt_version": "v1.0",
+            "needs_review": False,
         },
         150,
         True,
@@ -51,6 +52,7 @@ def test_submit_ticket_gets_auto_classified():
     assert body["classification"]["category"] == "Auth"
     assert body["classification"]["severity"] == "P1"
     assert body["classification"]["confidence"] == 0.92
+    assert body["classification"]["needs_review"] is False
 
     ticket_id = body["ticket_id"]
     get_resp = client.get(f"/tickets/{ticket_id}")
@@ -75,6 +77,7 @@ def test_submit_ticket_gets_auto_routed():
             "confidence": 0.88,
             "model_version": "llama3.1:8b",
             "prompt_version": "v1.0",
+            "needs_review": False,
         },
         120,
         True,
@@ -112,6 +115,7 @@ def test_classifier_failure_sets_classification_status_failed():
             "confidence": 0.0,
             "model_version": "",
             "prompt_version": "",
+            "needs_review": True,
         },
         65000,
         False,
@@ -137,7 +141,7 @@ def test_classifier_failure_sets_classification_status_failed():
 def test_routing_valid_category_severity():
     """Valid (Auth, P0) routes to Identity-Oncall."""
     classify_result = (
-        {"ticket_id": "x", "category": "Auth", "severity": "P0", "confidence": 0.95, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Auth", "severity": "P0", "confidence": 0.95, "model_version": "m", "prompt_version": "v", "needs_review": False},
         100,
         True,
     )
@@ -156,7 +160,7 @@ def test_routing_valid_category_severity():
 def test_routing_unknown_category_severity_falls_back():
     """Unknown/Unknown routes to Manual-Triage (router fallback)."""
     classify_result = (
-        {"ticket_id": "x", "category": "Unknown", "severity": "Unknown", "confidence": 0.3, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Unknown", "severity": "Unknown", "confidence": 0.3, "model_version": "m", "prompt_version": "v", "needs_review": True},
         80,
         True,
     )
@@ -179,7 +183,7 @@ def test_routing_unknown_category_severity_falls_back():
 def test_latency_fields_populated():
     """Latency fields (intake_ms, classify_ms, route_ms, total_ms) are populated."""
     classify_result = (
-        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v", "needs_review": False},
         200,
         True,
     )
@@ -209,7 +213,7 @@ def test_latency_fields_populated():
 def test_get_ticket_includes_routing_info():
     """GET /tickets/:id includes routing information."""
     classify_result = (
-        {"ticket_id": "x", "category": "Security", "severity": "P0", "confidence": 0.99, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Security", "severity": "P0", "confidence": 0.99, "model_version": "m", "prompt_version": "v", "needs_review": False},
         100,
         True,
     )
@@ -233,7 +237,7 @@ def test_get_ticket_includes_routing_info():
 def test_list_tickets_includes_classification_and_routing():
     """GET /tickets list includes classification and routing for each ticket."""
     classify_result = (
-        {"ticket_id": "x", "category": "Outage", "severity": "P0", "confidence": 0.95, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Outage", "severity": "P0", "confidence": 0.95, "model_version": "m", "prompt_version": "v", "needs_review": False},
         100,
         True,
     )
@@ -259,7 +263,7 @@ def test_list_tickets_includes_classification_and_routing():
 def test_router_failure_sets_routing_status_failed():
     """When router fails, routing_status=failed."""
     classify_result = (
-        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v", "needs_review": False},
         100,
         True,
     )
@@ -278,7 +282,7 @@ def test_router_failure_sets_routing_status_failed():
 def test_metrics_latency_endpoint():
     """GET /metrics/latency returns p50, p95, p99 for timing fields."""
     classify_result = (
-        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v"},
+        {"ticket_id": "x", "category": "Auth", "severity": "P1", "confidence": 0.9, "model_version": "m", "prompt_version": "v", "needs_review": False},
         100,
         True,
     )
