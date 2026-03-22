@@ -1,243 +1,243 @@
 [
   {
-    "ticket_id": "v1-0001",
-    "title": "SSO callback loop for enterprise tenants [AUT-01]",
-    "description": "Observed in production. users are blocked from signing in. Repro count: 1.",
+    "ticket_id": "v1-real-0001",
+    "title": "Supabase CLI command does not generate expected files",
+    "description": "Running the Supabase NExt.js client setup command does not create the expected client.ts, middleware.ts, and server.ts files in the supabase directory.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "github_issue"
+  },
+  {
+    "ticket_id": "v1-real-0002",
+    "title": "Supabase hot reload does not update email rate limit configuration",
+    "description": "Changing the GOTRUE_RATE_LIMIT_EMAIL_SENT environment variable during hot reload does not update the limiter configuration, leaving the previous rate limit values active.",
+    "category": "Performance",
+    "severity": "P2",
+    "source": "github_issue"
+  },
+  {
+    "ticket_id": "v1-real-0003",
+    "title": "SSO redirectTo parameter ignored when authentication fails",
+    "description": "When using signInWithSSO with a redirectTo parameter, failed authentication redirects to the default SiteURL instead of the provided redirect URL.",
     "category": "Auth",
     "severity": "P1",
-    "source": "web"
+    "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0002",
-    "title": "MFA prompt never appears after password entry [AUT-02]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that authentication fails across multiple orgs. Issue started after a recent deployment and persists despite cache clears.",
+    "ticket_id": "v1-real-0004",
+    "title": "Supabase preview branches sometimes not created for pull requests",
+    "description": "Supabase preview branching occasionally fails to create a preview branch for a pull request even when the GitHub integration and settings are configured correctly.",
+    "category": "Feature Request",
+    "severity": "P2",
+    "source": "github_issue"
+  },
+  {
+    "ticket_id": "v1-real-0005",
+    "title": "Database connection fails with password authentication error for postgres user",
+    "description": "Users report that connecting to a Supabase database fails with a password authentication error for the postgres user even after resetting the database password.",
     "category": "Auth",
     "severity": "P1",
-    "source": "mobile"
+    "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0003",
-    "title": "Password reset link expires instantly [AUT-03]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however new sessions cannot be established when the boundary condition is met (case #1002).",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "api"
-  },
-  {
-    "ticket_id": "v1-0004",
-    "title": "OIDC token rejected by auth gateway [AUT-04]",
-    "description": "Observed in production. login flow breaks after redirect. Repro count: 4.",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "ops"
-  },
-  {
-    "ticket_id": "v1-0005",
-    "title": "Service account login fails with 401 [AUT-05]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that access is denied for valid credentials. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
+    "ticket_id": "v1-real-0006",
+    "title": "Reports dashboard blocks have styling and layout issues",
+    "description": "The Supabase Reports dashboard has several UI issues including tooltip text overflow, axis label formatting problems, and inaccessible action buttons in report blocks.",
+    "category": "Performance",
     "severity": "P3",
-    "source": "support"
+    "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0006",
-    "title": "Session timeout too aggressive for analysts [AUT-06]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users are blocked from signing in when the boundary condition is met (case #1005).",
-    "category": "Auth",
-    "severity": "P0",
-    "source": "security"
+  "ticket_id": "v1-real-007",
+  "title": "ApplePayContextDelegate completion handler fails due to sendable constraint",
+  "description": "Using Stripe's ApplePayContext delegate with async code produces a sendable closure error, preventing access to the client secret and causing Apple Pay payment creation to fail.",
+  "category": "Billing",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0007",
-    "title": "Admin cannot impersonate user for support [AUT-07]",
-    "description": "Observed in production. authentication fails across multiple orgs. Repro count: 7.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "email"
+  "ticket_id": "v1-real-008",
+  "title": "StripePayments package missing StripeCore dependency in modular project",
+  "description": "Including Stripe packages in a modular Swift project causes dependency scan errors where StripePayments cannot locate StripeCore, resulting in build failures.",
+  "category": "Billing",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0008",
-    "title": "SSO callback loop for enterprise tenants [AUT-08]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that new sessions cannot be established. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "chat"
+  "ticket_id": "v1-real-009",
+  "title": "NodeLogQuery endpoint no longer accepts POST requests after Kubernetes upgrade",
+  "description": "After upgrading Kubernetes to version 1.36, the NodeLogQuery endpoint stopped accepting POST requests and only responds to GET requests, breaking previous API behavior.",
+  "category": "Outage",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0009",
-    "title": "MFA prompt never appears after password entry [AUT-09]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however login flow breaks after redirect when the boundary condition is met (case #1008).",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "web"
+  "ticket_id": "v1-real-010",
+  "title": "Redis server crashes when updateClientMemUsageAndBucket runs on non-main thread",
+  "description": "A Redis server crash occurs when updateClientMemUsageAndBucket executes on a non-main thread even when the GIL is held, triggering a thread assertion failure.",
+  "category": "Outage",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0010",
-    "title": "Password reset link expires instantly [AUT-10]",
-    "description": "Observed in production. access is denied for valid credentials. Repro count: 1.",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "mobile"
+  "ticket_id": "v1-real-011",
+  "title": "Redis keysizes info reports incorrect ZSET item counts",
+  "description": "After upgrading Redis, the keysizes command reports incorrect or negative values for ZSET item counts, affecting database statistics and monitoring metrics.",
+  "category": "Performance",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0011",
-    "title": "OIDC token rejected by auth gateway [AUT-11]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users are blocked from signing in. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P3",
-    "source": "api"
+  "ticket_id": "v1-real-012",
+  "title": "Kubernetes configz endpoint exposes internal configuration type",
+  "description": "The cloud-controller-manager configz endpoint returns an internal configuration type instead of a versioned API object, exposing implementation details of the system configuration.",
+  "category": "Security",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0012",
-    "title": "Service account login fails with 401 [AUT-12]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however authentication fails across multiple orgs when the boundary condition is met (case #1011).",
-    "category": "Auth",
-    "severity": "P0",
-    "source": "ops"
+  "ticket_id": "v1-real-013",
+  "title": "UnionPay test card incorrectly marked invalid in Stripe iOS SDK",
+  "description": "A valid UnionPay test card is flagged as invalid in the Stripe iOS SDK, preventing users from saving the card during the payment flow.",
+  "category": "Billing",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0013",
-    "title": "Session timeout too aggressive for analysts [AUT-13]",
-    "description": "Observed in production. new sessions cannot be established. Repro count: 4.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "support"
+  "ticket_id": "v1-real-014",
+  "title": "Kubernetes Events watch request silently fails with stale resourceVersion",
+  "description": "A watch request for Events using a stale resourceVersion returns HTTP 200 and closes immediately instead of returning an explicit error, causing clients to silently fail.",
+  "category": "Outage",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0014",
-    "title": "Admin cannot impersonate user for support [AUT-14]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that login flow breaks after redirect. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "security"
+  "ticket_id": "v1-real-015",
+  "title": "Redis 8.2.1 instances crash with signal 11 in HA deployment",
+  "description": "Redis 8.2.1 instances in a high-availability Kubernetes deployment crash with signal 11, and the issue can spread across multiple instances after the first crash occurs.",
+  "category": "Outage",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0015",
-    "title": "SSO callback loop for enterprise tenants [AUT-15]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however access is denied for valid credentials when the boundary condition is met (case #1014).",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "email"
+  "ticket_id": "v1-real-016",
+  "title": "ApplePayContextDelegate completion handler fails due to Swift sendable constraint",
+  "description": "Using Stripe's ApplePayContext delegate with async code produces a sendable closure error, preventing access to the client secret during the payment flow.",
+  "category": "Billing",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0016",
-    "title": "MFA prompt never appears after password entry [AUT-16]",
-    "description": "Observed in production. users are blocked from signing in. Repro count: 7.",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "chat"
+  "ticket_id": "v1-real-017",
+  "title": "SMS OTP login incorrectly recorded as new signup in auth reports",
+  "description": "When users sign in using SMS OTP, the Supabase dashboard records the event as a new signup instead of a login for existing users.",
+  "category": "Auth",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0017",
-    "title": "Password reset link expires instantly [AUT-17]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that authentication fails across multiple orgs. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P3",
-    "source": "web"
+  "ticket_id": "v1-real-018",
+  "title": "Redis cluster experiences unbounded memory growth under heavy publish load",
+  "description": "Under high PUBLISH traffic, Redis cluster communication buffers continuously grow and are not reclaimed, eventually leading to an out-of-memory crash.",
+  "category": "Performance",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0018",
-    "title": "OIDC token rejected by auth gateway [AUT-18]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however new sessions cannot be established when the boundary condition is met (case #1017).",
-    "category": "Auth",
-    "severity": "P0",
-    "source": "mobile"
+  "ticket_id": "v1-real-019",
+  "title": "FirebaseUI Auth layout breaks due to Android 15 edge-to-edge enforcement",
+  "description": "FirebaseUI authentication screens render incorrectly on Android 15 due to the new edge-to-edge UI enforcement, causing layout and visibility issues.",
+  "category": "Performance",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0019",
-    "title": "Service account login fails with 401 [AUT-19]",
-    "description": "Observed in production. login flow breaks after redirect. Repro count: 1.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "api"
+  "ticket_id": "v1-real-020",
+  "title": "FirestorePagingAdapter causes application crash during pagination updates",
+  "description": "Applications using FirestorePagingAdapter may crash when loading additional records or refreshing data, causing unexpected failures during pagination.",
+  "category": "Outage",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0020",
-    "title": "Session timeout too aggressive for analysts [AUT-20]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that access is denied for valid credentials. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "ops"
+  "ticket_id": "v1-real-021",
+  "title": "Redis CLI ctrl+arrow navigation behaves incorrectly in command line",
+  "description": "Using ctrl+left or ctrl+right arrow keys in the Redis CLI does not move by word as expected and instead inserts characters into the command input.",
+  "category": "Feature Request",
+  "severity": "P3",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0021",
-    "title": "Admin cannot impersonate user for support [AUT-21]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however users are blocked from signing in when the boundary condition is met (case #1020).",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "support"
+  "ticket_id": "v1-real-022",
+  "title": "kube-proxy incorrectly detects IPv6 support when IPv6 is disabled",
+  "description": "kube-proxy fails to properly detect when IPv6 support is disabled on a node, incorrectly enabling dual-stack mode and causing service binding errors.",
+  "category": "Outage",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0022",
-    "title": "SSO callback loop for enterprise tenants [AUT-22]",
-    "description": "Observed in production. authentication fails across multiple orgs. Repro count: 4.",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "security"
+  "ticket_id": "v1-real-023",
+  "title": "iOS CardScan view crashes with EXC_BREAKPOINT error",
+  "description": "Opening the CardScan interface in an iOS application triggers an EXC_BREAKPOINT error when initializing the SimpleScanViewController.",
+  "category": "Billing",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0023",
-    "title": "MFA prompt never appears after password entry [AUT-23]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that new sessions cannot be established. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P3",
-    "source": "email"
+  "ticket_id": "v1-real-024",
+  "title": "Supabase dashboard CSV import fails with large geometry datasets",
+  "description": "Importing CSV files containing geometry columns with a large number of points causes the Supabase dashboard import process to hang or fail.",
+  "category": "Performance",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0024",
-    "title": "Password reset link expires instantly [AUT-24]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however login flow breaks after redirect when the boundary condition is met (case #1023).",
-    "category": "Auth",
-    "severity": "P0",
-    "source": "chat"
+  "ticket_id": "v1-real-025",
+  "title": "Supabase email auth hook returns project URL instead of configured SiteURL",
+  "description": "Email authentication hooks use the Supabase project URL for site_url instead of the configured SiteURL, resulting in incorrect confirmation links.",
+  "category": "Auth",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0025",
-    "title": "OIDC token rejected by auth gateway [AUT-25]",
-    "description": "Observed in production. access is denied for valid credentials. Repro count: 7.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "web"
+  "ticket_id": "v1-real-026",
+  "title": "FirestorePagingSource crash due to InterruptedException",
+  "description": "Applications using FirestorePagingSource may crash with an InterruptedException during lifecycle state retrieval when loading paginated data.",
+  "category": "Outage",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0026",
-    "title": "Service account login fails with 401 [AUT-26]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that users are blocked from signing in. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P1",
-    "source": "mobile"
+  "ticket_id": "v1-real-027",
+  "title": "StatefulSet rolling update completes before replicas become available",
+  "description": "Kubernetes StatefulSet rolling updates may finish prematurely because the update logic checks ReadyReplicas but not AvailableReplicas when minReadySeconds is configured.",
+  "category": "Outage",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0027",
-    "title": "Session timeout too aggressive for analysts [AUT-27]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however authentication fails across multiple orgs when the boundary condition is met (case #1026).",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "api"
+  "ticket_id": "v1-real-028",
+  "title": "PostgreSQL topology extension not automatically added to search path",
+  "description": "Installing the PostgreSQL topology extension does not automatically update the search path, causing queries using the extension to fail unless configuration is manually modified.",
+  "category": "Performance",
+  "severity": "P3",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0028",
-    "title": "Admin cannot impersonate user for support [AUT-28]",
-    "description": "Observed in production. new sessions cannot be established. Repro count: 1.",
-    "category": "Auth",
-    "severity": "P2",
-    "source": "ops"
+  "ticket_id": "v1-real-029",
+  "title": "FirebaseUI authentication screen crashes on certain Samsung devices",
+  "description": "FirebaseUI authentication screens may crash with a RuntimeException on some Samsung devices when rendering display list canvases.",
+  "category": "Auth",
+  "severity": "P1",
+  "source": "github_issue"
   },
   {
-    "ticket_id": "v1-0029",
-    "title": "SSO callback loop for enterprise tenants [AUT-29]",
-    "description": "Multiple stakeholders reported this today across different tenants. After reviewing logs and support transcripts, we confirmed that login flow breaks after redirect. Issue started after a recent deployment and persists despite cache clears.",
-    "category": "Auth",
-    "severity": "P3",
-    "source": "support"
-  },
-  {
-    "ticket_id": "v1-0030",
-    "title": "MFA prompt never appears after password entry [AUT-30]",
-    "description": "Intermittent edge case: only affects long-lived sessions, legacy clients, or orgs with custom settings; however access is denied for valid credentials when the boundary condition is met (case #1029).",
-    "category": "Auth",
-    "severity": "P0",
-    "source": "security"
+  "ticket_id": "v1-real-030",
+  "title": "FirebaseUI auth provider picker hides buttons due to layout issue",
+  "description": "The FirebaseUI authentication provider picker screen may hide login buttons when SVG images introduce excess spacing in the scroll view layout.",
+  "category": "Auth",
+  "severity": "P2",
+  "source": "github_issue"
   },
   {
     "ticket_id": "v1-0031",
