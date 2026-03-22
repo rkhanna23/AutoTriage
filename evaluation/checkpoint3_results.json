@@ -1,0 +1,9 @@
+{
+  "category_accuracy": 0.995,
+  "severity_accuracy": 0.75,
+  "routing_accuracy": 0.9,
+  "p50_latency_ms": 120.0,
+  "p95_latency_ms": 240.0,
+  "p99_latency_ms": 310.0,
+  "notes": "Placeholder CP3 metrics used until live predicted/routing/latency fields are available."
+}
