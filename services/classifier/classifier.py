@@ -129,6 +129,10 @@ class _DatasetExample(BaseModel):
     severity: str
 
 
+class ClassificationUnavailableError(RuntimeError):
+    """Raised when strict classification requires a live model response."""
+
+
 @lru_cache(maxsize=1)
 def _load_prompt_registry() -> PromptRegistry:
     path = _PROMPTS_DIR / "registry.json"
@@ -359,12 +363,14 @@ class TicketClassifier:
         model: str = OLLAMA_MODEL,
         prompt_version: str = PROMPT_VERSION,
         timeout: float = 60.0,
+        allow_fallback: bool = True,
     ):
         _prompt_metadata(prompt_version)
         self._base_url = base_url.rstrip("/")
         self._model = model
         self._prompt_version = prompt_version
         self._timeout = timeout
+        self._allow_fallback = allow_fallback
         self._template = _load_prompt_template(prompt_version)
 
     def classify(
@@ -405,6 +411,12 @@ class TicketClassifier:
                 return parsed
         except httpx.HTTPError:
             pass
+
+        if not self._allow_fallback:
+            raise ClassificationUnavailableError(
+                f"Live classification unavailable for prompt_version '{active_version}'. "
+                "Evaluation is running in strict mode, so local fallback is disabled."
+            )
 
         return self._classify_local(
             ticket_id=ticket_id,

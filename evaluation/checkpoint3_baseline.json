@@ -1,6 +1,6 @@
 {
   "checkpoint": "CP3-SA-04",
-  "generated_at": "2026-03-20T03:53:05.243121+00:00",
+  "generated_at": "2026-03-23T00:43:31.228179+00:00",
   "dataset": {
     "path": "data/ticket_dataset_v1.json",
     "total_tickets": 210
@@ -38,61 +38,93 @@
       "Auth": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 11
       },
       "Billing": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 40
       },
       "Outage": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 43
       },
       "Performance": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 42
       },
       "Security": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 36
       },
       "Feature Request": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 35
+        "support": 38
       }
     },
     "severity_per_class": {
       "P0": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 34
+        "support": 29
       },
       "P1": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 64
+        "support": 68
       },
       "P2": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 65
+        "support": 68
       },
       "P3": {
         "precision": 1.0,
         "recall": 1.0,
-        "support": 47
+        "support": 45
       }
     }
   },
   "predictions": [
     {
-      "ticket_id": "v1-0001",
-      "source": "web",
+      "ticket_id": "v1-real-0001",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-0002",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-0003",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P1"
@@ -101,14 +133,30 @@
         "category": "Auth",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0002",
-      "source": "mobile",
+      "ticket_id": "v1-real-0004",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-0005",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P1"
@@ -117,110 +165,190 @@
         "category": "Auth",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0003",
-      "source": "api",
+      "ticket_id": "v1-real-0006",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
-        "severity": "P2"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P2",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0004",
-      "source": "ops",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P2"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P2",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0005",
-      "source": "support",
-      "ground_truth": {
-        "category": "Auth",
+        "category": "Performance",
         "severity": "P3"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0006",
-      "source": "security",
+      "ticket_id": "v1-real-007",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
-        "severity": "P0"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P0",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0007",
-      "source": "email",
-      "ground_truth": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0008",
-      "source": "chat",
+      "ticket_id": "v1-real-008",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0009",
-      "source": "web",
+      "ticket_id": "v1-real-009",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-010",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-011",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-012",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-013",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-014",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-015",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-016",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-017",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P2"
@@ -229,94 +357,126 @@
         "category": "Auth",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0010",
-      "source": "mobile",
+      "ticket_id": "v1-real-018",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Performance",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-019",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
         "severity": "P2"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0011",
-      "source": "api",
+      "ticket_id": "v1-real-020",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-021",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
         "severity": "P3"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0012",
-      "source": "ops",
+      "ticket_id": "v1-real-022",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
-        "severity": "P0"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P0",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0013",
-      "source": "support",
-      "ground_truth": {
-        "category": "Auth",
+        "category": "Outage",
         "severity": "P1"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0014",
-      "source": "security",
+      "ticket_id": "v1-real-023",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0015",
-      "source": "email",
+      "ticket_id": "v1-real-024",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-025",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P2"
@@ -325,62 +485,62 @@
         "category": "Auth",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0016",
-      "source": "chat",
+      "ticket_id": "v1-real-026",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Outage",
+        "severity": "P1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "model_version": "gemma2:2b+local-fallback",
+        "prompt_version": "v2.1",
+        "needs_review": false
+      }
+    },
+    {
+      "ticket_id": "v1-real-027",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
         "severity": "P2"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0017",
-      "source": "web",
+      "ticket_id": "v1-real-028",
+      "source": "github_issue",
       "ground_truth": {
-        "category": "Auth",
+        "category": "Performance",
         "severity": "P3"
       },
       "prediction": {
-        "category": "Auth",
+        "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0018",
-      "source": "mobile",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P0"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P0",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0019",
-      "source": "api",
+      "ticket_id": "v1-real-029",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P1"
@@ -389,30 +549,14 @@
         "category": "Auth",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
     },
     {
-      "ticket_id": "v1-0020",
-      "source": "ops",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P1"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P1",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0021",
-      "source": "support",
+      "ticket_id": "v1-real-030",
+      "source": "github_issue",
       "ground_truth": {
         "category": "Auth",
         "severity": "P2"
@@ -421,151 +565,7 @@
         "category": "Auth",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0022",
-      "source": "security",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P2"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P2",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0023",
-      "source": "email",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P3"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P3",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0024",
-      "source": "chat",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P0"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P0",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0025",
-      "source": "web",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P1"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P1",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0026",
-      "source": "mobile",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P1"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P1",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0027",
-      "source": "api",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P2"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P2",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0028",
-      "source": "ops",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P2"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P2",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0029",
-      "source": "support",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P3"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P3",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
-        "prompt_version": "v2.1",
-        "needs_review": false
-      }
-    },
-    {
-      "ticket_id": "v1-0030",
-      "source": "security",
-      "ground_truth": {
-        "category": "Auth",
-        "severity": "P0"
-      },
-      "prediction": {
-        "category": "Auth",
-        "severity": "P0",
-        "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -581,7 +581,7 @@
         "category": "Auth",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -597,7 +597,7 @@
         "category": "Auth",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -613,7 +613,7 @@
         "category": "Auth",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -629,7 +629,7 @@
         "category": "Auth",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -645,7 +645,7 @@
         "category": "Auth",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -661,7 +661,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -677,7 +677,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -693,7 +693,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -709,7 +709,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -725,7 +725,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -741,7 +741,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -757,7 +757,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -773,7 +773,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -789,7 +789,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -805,7 +805,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -821,7 +821,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -837,7 +837,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -853,7 +853,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -869,7 +869,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -885,7 +885,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -901,7 +901,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -917,7 +917,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -933,7 +933,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -949,7 +949,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -965,7 +965,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -981,7 +981,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -997,7 +997,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1013,7 +1013,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1029,7 +1029,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1045,7 +1045,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1061,7 +1061,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1077,7 +1077,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1093,7 +1093,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1109,7 +1109,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1125,7 +1125,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1141,7 +1141,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1157,7 +1157,7 @@
         "category": "Billing",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1173,7 +1173,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1189,7 +1189,7 @@
         "category": "Billing",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1205,7 +1205,7 @@
         "category": "Billing",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1221,7 +1221,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1237,7 +1237,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1253,7 +1253,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1269,7 +1269,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1285,7 +1285,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1301,7 +1301,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1317,7 +1317,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1333,7 +1333,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1349,7 +1349,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1365,7 +1365,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1381,7 +1381,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1397,7 +1397,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1413,7 +1413,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1429,7 +1429,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1445,7 +1445,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1461,7 +1461,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1477,7 +1477,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1493,7 +1493,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1509,7 +1509,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1525,7 +1525,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1541,7 +1541,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1557,7 +1557,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1573,7 +1573,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1589,7 +1589,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1605,7 +1605,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1621,7 +1621,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1637,7 +1637,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1653,7 +1653,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1669,7 +1669,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1685,7 +1685,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1701,7 +1701,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1717,7 +1717,7 @@
         "category": "Outage",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1733,7 +1733,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1749,7 +1749,7 @@
         "category": "Outage",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1765,7 +1765,7 @@
         "category": "Outage",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1781,7 +1781,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1797,7 +1797,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1813,7 +1813,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1829,7 +1829,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1845,7 +1845,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1861,7 +1861,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1877,7 +1877,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1893,7 +1893,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1909,7 +1909,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1925,7 +1925,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1941,7 +1941,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1957,7 +1957,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1973,7 +1973,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -1989,7 +1989,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2005,7 +2005,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2021,7 +2021,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2037,7 +2037,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2053,7 +2053,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2069,7 +2069,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2085,7 +2085,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2101,7 +2101,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2117,7 +2117,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2133,7 +2133,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2149,7 +2149,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2165,7 +2165,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2181,7 +2181,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2197,7 +2197,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2213,7 +2213,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2229,7 +2229,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2245,7 +2245,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2261,7 +2261,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2277,7 +2277,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2293,7 +2293,7 @@
         "category": "Performance",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2309,7 +2309,7 @@
         "category": "Performance",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2325,7 +2325,7 @@
         "category": "Performance",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2341,7 +2341,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2357,7 +2357,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2373,7 +2373,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2389,7 +2389,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2405,7 +2405,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2421,7 +2421,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2437,7 +2437,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2453,7 +2453,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2469,7 +2469,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2485,7 +2485,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2501,7 +2501,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2517,7 +2517,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2533,7 +2533,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2549,7 +2549,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2565,7 +2565,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2581,7 +2581,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2597,7 +2597,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2613,7 +2613,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2629,7 +2629,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2645,7 +2645,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2661,7 +2661,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2677,7 +2677,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2693,7 +2693,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2709,7 +2709,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2725,7 +2725,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2741,7 +2741,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2757,7 +2757,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2773,7 +2773,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2789,7 +2789,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2805,7 +2805,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2821,7 +2821,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2837,7 +2837,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2853,7 +2853,7 @@
         "category": "Security",
         "severity": "P1",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2869,7 +2869,7 @@
         "category": "Security",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2885,7 +2885,7 @@
         "category": "Security",
         "severity": "P0",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2901,7 +2901,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2917,7 +2917,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2933,7 +2933,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2949,7 +2949,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2965,7 +2965,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2981,7 +2981,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -2997,7 +2997,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3013,7 +3013,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3029,7 +3029,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3045,7 +3045,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3061,7 +3061,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3077,7 +3077,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3093,7 +3093,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3109,7 +3109,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3125,7 +3125,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3141,7 +3141,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3157,7 +3157,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3173,7 +3173,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3189,7 +3189,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3205,7 +3205,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3221,7 +3221,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3237,7 +3237,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3253,7 +3253,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3269,7 +3269,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3285,7 +3285,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3301,7 +3301,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3317,7 +3317,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3333,7 +3333,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3349,7 +3349,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3365,7 +3365,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3381,7 +3381,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3397,7 +3397,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3413,7 +3413,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3429,7 +3429,7 @@
         "category": "Feature Request",
         "severity": "P3",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }
@@ -3445,7 +3445,7 @@
         "category": "Feature Request",
         "severity": "P2",
         "confidence": 0.93,
-        "model_version": "llama3.1:8b+local-fallback",
+        "model_version": "gemma2:2b+local-fallback",
         "prompt_version": "v2.1",
         "needs_review": false
       }

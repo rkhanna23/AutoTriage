@@ -102,11 +102,11 @@ def test_submit_ticket_gets_auto_routed():
 
 
 # ---------------------------------------------------------------------------
-# CP3-RK-05 (3): Classifier timeout/failure results in classification_status=failed
+# CP3-RK-05 (3): Classifier timeout/failure results in classification_status=pending
 # ---------------------------------------------------------------------------
 
-def test_classifier_failure_sets_classification_status_failed():
-    """When classifier times out or errors, classification_status=failed."""
+def test_classifier_failure_sets_classification_status_pending():
+    """When classifier times out or errors, classification_status=pending for retry."""
     classify_result = (
         {
             "ticket_id": "x",
@@ -130,8 +130,12 @@ def test_classifier_failure_sets_classification_status_failed():
             resp = client.post("/tickets", json=VALID_PAYLOAD)
     assert resp.status_code == 201
     body = resp.json()
-    assert body["classification"]["classification_status"] == "failed"
-    assert body["classification"]["category"] is None or body["classification"]["category"] == ""
+    assert body["classification"] is None
+
+    ticket_id = body["ticket_id"]
+    get_resp = client.get(f"/tickets/{ticket_id}")
+    assert get_resp.status_code == 200
+    assert get_resp.json()["classification"]["classification_status"] == "pending"
 
 
 # ---------------------------------------------------------------------------

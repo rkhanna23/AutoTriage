@@ -35,9 +35,20 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r services/classifier/requirements.txt || true
-          pip install scikit-learn pandas
+          pip install -r services/intake/requirements.txt
+          pip install -r services/classifier/requirements.txt
+          pip install -r services/router/requirements.txt
 
-      - name: Run evaluation
+      - name: Run prompt comparison
         run: |
-          python -m evaluation.run_baseline --dataset data/ticket_dataset_v1.json --output evaluation/checkpoint2_baseline.json
+          python -m evaluation.run_baseline --compare \
+            --dataset data/ticket_dataset_v1.json \
+            --output-dir evaluation \
+            --comparison-output evaluation/checkpoint3_comparison.json \
+            --markdown-output evaluation/checkpoint3_comparison.md
+
+      - name: Run CP3 evaluation
+        run: |
+          python -m evaluation.run_eval \
+            --dataset data/ticket_dataset_v2.json \
+            --output evaluation/checkpoint3_results.json

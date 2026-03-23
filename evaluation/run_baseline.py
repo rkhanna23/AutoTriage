@@ -114,7 +114,7 @@ def _expected_calibration_error(confidences: list[float], correctness: list[int]
 
 def run(dataset_path: Path, output_path: Path, prompt_version: str = PROMPT_VERSION) -> dict[str, Any]:
     rows = _load_dataset(dataset_path)
-    classifier = TicketClassifier(prompt_version=prompt_version)
+    classifier = TicketClassifier(prompt_version=prompt_version, allow_fallback=False)
 
     predictions: list[dict[str, Any]] = []
     gt_categories: list[str] = []
