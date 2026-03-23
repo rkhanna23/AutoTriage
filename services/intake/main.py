@@ -106,7 +106,7 @@ def create_ticket(payload: TicketCreate, db: Session = Depends(get_db)):
     class_result, classify_ms, class_ok = pipeline_classify(
         ticket.id, ticket.title, ticket.description
     )
-    ticket.classification_status = "classified" if class_ok else "failed"
+    ticket.classification_status = "classified" if class_ok else "pending"
     ticket.category = class_result.get("category")
     ticket.severity = class_result.get("severity")
     ticket.confidence = class_result.get("confidence")

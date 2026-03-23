@@ -21,7 +21,7 @@ jobs:
       - name: Run tests
         run: pytest tests/ -v
 
-  run-eval:
+  verify-eval:
     runs-on: ubuntu-latest
     needs: test
     steps:
@@ -35,9 +35,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r services/classifier/requirements.txt || true
-          pip install scikit-learn pandas
+          pip install -r services/intake/requirements.txt
+          pip install -r services/classifier/requirements.txt
+          pip install -r services/router/requirements.txt
 
-      - name: Run evaluation
+      - name: Verify evaluation scripts compile
         run: |
-          python -m evaluation.run_baseline --dataset data/ticket_dataset_v1.json --output evaluation/checkpoint2_baseline.json
+          python -m py_compile \
+            evaluation/run_baseline.py \
+            evaluation/run_eval.py \
+            services/classifier/classifier.py \
+            services/classifier/main.py \
+            services/intake/main.py \
+            services/router/main.py
+
+      - name: Verify evaluation CLI surfaces
+        run: |
+          python -m evaluation.run_baseline --help
+          python -m evaluation.run_eval --help

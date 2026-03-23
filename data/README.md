@@ -1,59 +1,47 @@
-# Ticket Dataset v1 - (CP2-KL-02)
+# Ticket Datasets
 
-This dataset contains labeled support tickets used to evaluate the AutoTriage ticket classification system.
+This directory contains the labeled datasets used to evaluate the AutoTriage pipeline.
 
-## Dataset Composition
+## Dataset v1
 
-Ticket Dataset v1 includes:
+`ticket_dataset_v1.json` and `ticket_dataset_v1.csv` are the CP2 baseline datasets.
 
-- **200+ synthetic tickets** created to simulate common support issues
-- **30 real-world examples** derived from public GitHub issue trackers
+- 210 tickets total
+- Balanced across the six project categories
+- Used for prompt-version comparison and CP2 baseline reporting
 
-The synthetic examples were generated to ensure balanced category coverage.  
-The real examples were manually summarized and labeled.
+## Dataset v2
+
+`ticket_dataset_v2.json` is the CP3 evaluation dataset.
+
+- 300 tickets total
+- Uses the project taxonomy only: `Auth`, `Billing`, `Outage`, `Performance`, `Security`, `Feature Request`
+- Balanced severity distribution: 75 tickets each for `P0`, `P1`, `P2`, and `P3`
+- Includes 20 explicit edge cases across:
+  - ambiguous severity boundaries
+  - multi-category phrasing such as auth-outage or billing-impact incidents
+  - minimal descriptions with very short ticket bodies
+
+## Expansion Rationale
+
+Checkpoint 3 focuses on improving severity prediction, routing correctness, and live evaluation. Dataset v2 expands on v1 by:
+
+- rebalancing severity so all priority levels are represented evenly
+- keeping the taxonomy aligned with the classifier and router services
+- adding edge-case tickets that stress prompt reasoning and low-confidence review behavior
+
+## Sources
+
+- CP2 Dataset v1 tickets
+- Additional synthetic CP3 edge-case tickets authored to test severity ambiguity, mixed-signal incidents, and sparse descriptions
 
 ## Fields
 
-Each ticket contains the following fields:
+Each ticket contains:
 
-- `title` – short description of the issue
-- `description` – summary of the problem reported
-- `category` – ticket type classification
-- `severity` – priority level of the issue
-- `source` – origin of the ticket
-
-## Categories
-
-Tickets are classified into the following categories:
-
-- Auth
-- Billing
-- Outage
-- Performance
-- Security
-- Feature Request
-
-## Severity Levels
-
-Severity labels represent issue urgency:
-
-- **P0** – critical system failure
-- **P1** – major functionality broken
-- **P2** – moderate issue
-- **P3** – minor issue or usability problem
-
-## Real-World Sources
-
-Real ticket examples were summarized from public GitHub issue trackers, including:
-
-- Supabase
-- Kubernetes
-- Redis
-- Stripe
-- Firebase
-
-Issues were paraphrased and manually labeled to match the project taxonomy.
-
-## Purpose
-
-This dataset is used to benchmark the AutoTriage classification model during Checkpoint 2 by measuring category and severity prediction accuracy.
+- `ticket_id`
+- `title`
+- `description`
+- `category`
+- `severity`
+- `source`

@@ -1,9 +1,7054 @@
 {
-  "category_accuracy": 0.995,
-  "severity_accuracy": 0.75,
-  "routing_accuracy": 0.9,
-  "p50_latency_ms": 120.0,
-  "p95_latency_ms": 240.0,
-  "p99_latency_ms": 310.0,
-  "notes": "Placeholder CP3 metrics used until live predicted/routing/latency fields are available."
+  "checkpoint": "CP3-KL-04",
+  "dataset": "data/ticket_dataset_v2.json",
+  "prompt_version": "v2.1",
+  "total_tickets": 300,
+  "category_accuracy": 0.9933,
+  "severity_accuracy": 0.9833,
+  "routing_accuracy": 1.0,
+  "predicted_routing_accuracy": 0.9767,
+  "p50_latency_ms": 11.069,
+  "p95_latency_ms": 24.115,
+  "p99_latency_ms": 30.262,
+  "latency_breakdown_ms": {
+    "classify_ms": {
+      "p50": 10.841,
+      "p95": 23.846,
+      "p99": 29.669
+    },
+    "route_ms": {
+      "p50": 0.227,
+      "p95": 0.433,
+      "p99": 0.674
+    },
+    "total_ms": {
+      "p50": 11.069,
+      "p95": 24.115,
+      "p99": 30.262
+    }
+  },
+  "category_confusion_matrix": {
+    "labels": [
+      "Auth",
+      "Billing",
+      "Outage",
+      "Performance",
+      "Security",
+      "Feature Request",
+      "Unknown"
+    ],
+    "matrix": [
+      [
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        58,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        75,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        54,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        48,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        45,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "severity_confusion_matrix": {
+    "labels": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "Unknown"
+    ],
+    "matrix": [
+      [
+        74,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        74,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        73,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        74,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "predictions": [
+    {
+      "ticket_id": "v1-real-0001",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 21.919,
+        "route_ms": 0.44,
+        "total_ms": 22.366
+      }
+    },
+    {
+      "ticket_id": "v1-real-0002",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.958,
+        "route_ms": 0.223,
+        "total_ms": 11.186
+      }
+    },
+    {
+      "ticket_id": "v1-real-0003",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.262,
+        "route_ms": 0.257,
+        "total_ms": 11.523
+      }
+    },
+    {
+      "ticket_id": "v1-real-0004",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.264,
+        "route_ms": 0.219,
+        "total_ms": 10.487
+      }
+    },
+    {
+      "ticket_id": "v1-real-0005",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 12.94,
+        "route_ms": 0.216,
+        "total_ms": 13.159
+      }
+    },
+    {
+      "ticket_id": "v1-real-0006",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.139,
+        "route_ms": 0.212,
+        "total_ms": 9.354
+      }
+    },
+    {
+      "ticket_id": "v1-real-007",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 12.02,
+        "route_ms": 0.247,
+        "total_ms": 12.272
+      }
+    },
+    {
+      "ticket_id": "v1-real-008",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.026,
+        "route_ms": 0.205,
+        "total_ms": 11.234
+      }
+    },
+    {
+      "ticket_id": "v1-real-009",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.124,
+        "route_ms": 0.266,
+        "total_ms": 11.394
+      }
+    },
+    {
+      "ticket_id": "v1-real-010",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 13.193,
+        "route_ms": 0.21,
+        "total_ms": 13.406
+      }
+    },
+    {
+      "ticket_id": "v1-real-011",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.533,
+        "route_ms": 0.194,
+        "total_ms": 10.729
+      }
+    },
+    {
+      "ticket_id": "v1-real-012",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.448,
+        "route_ms": 0.232,
+        "total_ms": 11.685
+      }
+    },
+    {
+      "ticket_id": "v1-real-013",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.435,
+        "route_ms": 0.272,
+        "total_ms": 10.711
+      }
+    },
+    {
+      "ticket_id": "v1-real-014",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.706,
+        "route_ms": 0.2,
+        "total_ms": 9.908
+      }
+    },
+    {
+      "ticket_id": "v1-real-015",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 20.934,
+        "route_ms": 0.232,
+        "total_ms": 21.17
+      }
+    },
+    {
+      "ticket_id": "v1-real-016",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 12.43,
+        "route_ms": 0.235,
+        "total_ms": 12.67
+      }
+    },
+    {
+      "ticket_id": "v1-real-017",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.655,
+        "route_ms": 0.218,
+        "total_ms": 10.876
+      }
+    },
+    {
+      "ticket_id": "v1-real-018",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.443,
+        "route_ms": 0.209,
+        "total_ms": 10.655
+      }
+    },
+    {
+      "ticket_id": "v1-real-019",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.807,
+        "route_ms": 0.217,
+        "total_ms": 11.028
+      }
+    },
+    {
+      "ticket_id": "v1-real-020",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.811,
+        "route_ms": 0.202,
+        "total_ms": 11.016
+      }
+    },
+    {
+      "ticket_id": "v1-real-021",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.257,
+        "route_ms": 0.244,
+        "total_ms": 9.505
+      }
+    },
+    {
+      "ticket_id": "v1-real-022",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.524,
+        "route_ms": 0.216,
+        "total_ms": 11.744
+      }
+    },
+    {
+      "ticket_id": "v1-real-023",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.295,
+        "route_ms": 0.199,
+        "total_ms": 10.497
+      }
+    },
+    {
+      "ticket_id": "v1-real-024",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.385,
+        "route_ms": 0.244,
+        "total_ms": 10.633
+      }
+    },
+    {
+      "ticket_id": "v1-real-025",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 17.807,
+        "route_ms": 0.201,
+        "total_ms": 18.011
+      }
+    },
+    {
+      "ticket_id": "v1-real-026",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 25.437,
+        "route_ms": 0.276,
+        "total_ms": 25.719
+      }
+    },
+    {
+      "ticket_id": "v1-real-027",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 22.617,
+        "route_ms": 0.297,
+        "total_ms": 22.92
+      }
+    },
+    {
+      "ticket_id": "v1-real-028",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.222,
+        "route_ms": 0.221,
+        "total_ms": 9.447
+      }
+    },
+    {
+      "ticket_id": "v1-real-029",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 13.212,
+        "route_ms": 0.486,
+        "total_ms": 13.707
+      }
+    },
+    {
+      "ticket_id": "v1-real-030",
+      "source": "github_issue",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 28.045,
+        "route_ms": 0.254,
+        "total_ms": 28.305
+      }
+    },
+    {
+      "ticket_id": "v1-0031",
+      "source": "email",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 8.992,
+        "route_ms": 0.207,
+        "total_ms": 9.202
+      }
+    },
+    {
+      "ticket_id": "v1-0032",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.466,
+        "route_ms": 0.317,
+        "total_ms": 9.788
+      }
+    },
+    {
+      "ticket_id": "v1-0033",
+      "source": "web",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.38,
+        "route_ms": 0.225,
+        "total_ms": 10.609
+      }
+    },
+    {
+      "ticket_id": "v1-0034",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.076,
+        "route_ms": 0.476,
+        "total_ms": 11.562
+      }
+    },
+    {
+      "ticket_id": "v1-0035",
+      "source": "api",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.751,
+        "route_ms": 0.226,
+        "total_ms": 9.981
+      }
+    },
+    {
+      "ticket_id": "v1-0036",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.226,
+        "route_ms": 0.233,
+        "total_ms": 10.463
+      }
+    },
+    {
+      "ticket_id": "v1-0037",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.779,
+        "route_ms": 0.224,
+        "total_ms": 10.007
+      }
+    },
+    {
+      "ticket_id": "v1-0038",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.395,
+        "route_ms": 0.225,
+        "total_ms": 9.624
+      }
+    },
+    {
+      "ticket_id": "v1-0039",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 23.752,
+        "route_ms": 0.303,
+        "total_ms": 24.07
+      }
+    },
+    {
+      "ticket_id": "v1-0040",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.424,
+        "route_ms": 0.231,
+        "total_ms": 12.659
+      }
+    },
+    {
+      "ticket_id": "v1-0041",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.544,
+        "route_ms": 0.217,
+        "total_ms": 10.765
+      }
+    },
+    {
+      "ticket_id": "v1-0042",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.781,
+        "route_ms": 0.217,
+        "total_ms": 10.002
+      }
+    },
+    {
+      "ticket_id": "v1-0043",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.617,
+        "route_ms": 0.229,
+        "total_ms": 9.85
+      }
+    },
+    {
+      "ticket_id": "v1-0044",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.195,
+        "route_ms": 0.241,
+        "total_ms": 11.44
+      }
+    },
+    {
+      "ticket_id": "v1-0045",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.775,
+        "route_ms": 0.231,
+        "total_ms": 11.01
+      }
+    },
+    {
+      "ticket_id": "v1-0046",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.623,
+        "route_ms": 0.226,
+        "total_ms": 10.853
+      }
+    },
+    {
+      "ticket_id": "v1-0047",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.008,
+        "route_ms": 0.236,
+        "total_ms": 10.248
+      }
+    },
+    {
+      "ticket_id": "v1-0048",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.98,
+        "route_ms": 0.219,
+        "total_ms": 10.203
+      }
+    },
+    {
+      "ticket_id": "v1-0049",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.848,
+        "route_ms": 0.194,
+        "total_ms": 10.045
+      }
+    },
+    {
+      "ticket_id": "v1-0050",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.065,
+        "route_ms": 0.2,
+        "total_ms": 9.268
+      }
+    },
+    {
+      "ticket_id": "v1-0051",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 21.424,
+        "route_ms": 0.266,
+        "total_ms": 21.694
+      }
+    },
+    {
+      "ticket_id": "v1-0052",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.653,
+        "route_ms": 0.268,
+        "total_ms": 10.925
+      }
+    },
+    {
+      "ticket_id": "v1-0053",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.734,
+        "route_ms": 0.213,
+        "total_ms": 9.951
+      }
+    },
+    {
+      "ticket_id": "v1-0054",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.438,
+        "route_ms": 0.194,
+        "total_ms": 10.635
+      }
+    },
+    {
+      "ticket_id": "v1-0055",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.493,
+        "route_ms": 0.273,
+        "total_ms": 9.769
+      }
+    },
+    {
+      "ticket_id": "v1-0056",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.567,
+        "route_ms": 0.278,
+        "total_ms": 11.849
+      }
+    },
+    {
+      "ticket_id": "v1-0057",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.525,
+        "route_ms": 0.22,
+        "total_ms": 9.748
+      }
+    },
+    {
+      "ticket_id": "v1-0058",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.669,
+        "route_ms": 0.215,
+        "total_ms": 9.888
+      }
+    },
+    {
+      "ticket_id": "v1-0059",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.089,
+        "route_ms": 0.234,
+        "total_ms": 9.326
+      }
+    },
+    {
+      "ticket_id": "v1-0060",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.878,
+        "route_ms": 0.218,
+        "total_ms": 10.099
+      }
+    },
+    {
+      "ticket_id": "v1-0061",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.125,
+        "route_ms": 0.199,
+        "total_ms": 10.326
+      }
+    },
+    {
+      "ticket_id": "v1-0062",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.09,
+        "route_ms": 0.189,
+        "total_ms": 9.281
+      }
+    },
+    {
+      "ticket_id": "v1-0063",
+      "source": "support",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 22.97,
+        "route_ms": 0.304,
+        "total_ms": 23.279
+      }
+    },
+    {
+      "ticket_id": "v1-0064",
+      "source": "security",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.71,
+        "route_ms": 0.22,
+        "total_ms": 9.933
+      }
+    },
+    {
+      "ticket_id": "v1-0065",
+      "source": "email",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.753,
+        "route_ms": 0.263,
+        "total_ms": 10.02
+      }
+    },
+    {
+      "ticket_id": "v1-0066",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 13.732,
+        "route_ms": 0.437,
+        "total_ms": 14.175
+      }
+    },
+    {
+      "ticket_id": "v1-0067",
+      "source": "web",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.185,
+        "route_ms": 0.215,
+        "total_ms": 10.404
+      }
+    },
+    {
+      "ticket_id": "v1-0068",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 29.189,
+        "route_ms": 0.285,
+        "total_ms": 29.48
+      }
+    },
+    {
+      "ticket_id": "v1-0069",
+      "source": "api",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 16.745,
+        "route_ms": 0.251,
+        "total_ms": 17.0
+      }
+    },
+    {
+      "ticket_id": "v1-0070",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.834,
+        "route_ms": 0.254,
+        "total_ms": 10.093
+      }
+    },
+    {
+      "ticket_id": "v1-0071",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.505,
+        "route_ms": 0.208,
+        "total_ms": 9.716
+      }
+    },
+    {
+      "ticket_id": "v1-0072",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.476,
+        "route_ms": 0.224,
+        "total_ms": 10.705
+      }
+    },
+    {
+      "ticket_id": "v1-0073",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.915,
+        "route_ms": 0.203,
+        "total_ms": 11.121
+      }
+    },
+    {
+      "ticket_id": "v1-0074",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.369,
+        "route_ms": 0.268,
+        "total_ms": 10.642
+      }
+    },
+    {
+      "ticket_id": "v1-0075",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 27.453,
+        "route_ms": 0.243,
+        "total_ms": 27.701
+      }
+    },
+    {
+      "ticket_id": "v1-0076",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.099,
+        "route_ms": 0.46,
+        "total_ms": 11.565
+      }
+    },
+    {
+      "ticket_id": "v1-0077",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.575,
+        "route_ms": 0.325,
+        "total_ms": 11.904
+      }
+    },
+    {
+      "ticket_id": "v1-0078",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 14.034,
+        "route_ms": 0.398,
+        "total_ms": 14.437
+      }
+    },
+    {
+      "ticket_id": "v1-0079",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 17.145,
+        "route_ms": 1.075,
+        "total_ms": 18.265
+      }
+    },
+    {
+      "ticket_id": "v1-0080",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 15.476,
+        "route_ms": 0.341,
+        "total_ms": 15.823
+      }
+    },
+    {
+      "ticket_id": "v1-0081",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 14.546,
+        "route_ms": 0.258,
+        "total_ms": 14.81
+      }
+    },
+    {
+      "ticket_id": "v1-0082",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.696,
+        "route_ms": 0.216,
+        "total_ms": 9.916
+      }
+    },
+    {
+      "ticket_id": "v1-0083",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.902,
+        "route_ms": 0.242,
+        "total_ms": 11.148
+      }
+    },
+    {
+      "ticket_id": "v1-0084",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.447,
+        "route_ms": 0.852,
+        "total_ms": 13.31
+      }
+    },
+    {
+      "ticket_id": "v1-0085",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.683,
+        "route_ms": 0.276,
+        "total_ms": 10.963
+      }
+    },
+    {
+      "ticket_id": "v1-0086",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.579,
+        "route_ms": 0.242,
+        "total_ms": 10.826
+      }
+    },
+    {
+      "ticket_id": "v1-0087",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 24.866,
+        "route_ms": 0.244,
+        "total_ms": 25.115
+      }
+    },
+    {
+      "ticket_id": "v1-0088",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.727,
+        "route_ms": 0.248,
+        "total_ms": 10.98
+      }
+    },
+    {
+      "ticket_id": "v1-0089",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.565,
+        "route_ms": 0.265,
+        "total_ms": 10.835
+      }
+    },
+    {
+      "ticket_id": "v1-0090",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.728,
+        "route_ms": 0.26,
+        "total_ms": 12.993
+      }
+    },
+    {
+      "ticket_id": "v1-0091",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.744,
+        "route_ms": 0.245,
+        "total_ms": 10.993
+      }
+    },
+    {
+      "ticket_id": "v1-0092",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.667,
+        "route_ms": 0.379,
+        "total_ms": 11.051
+      }
+    },
+    {
+      "ticket_id": "v1-0093",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 14.937,
+        "route_ms": 0.244,
+        "total_ms": 15.186
+      }
+    },
+    {
+      "ticket_id": "v1-0094",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.238,
+        "route_ms": 0.236,
+        "total_ms": 11.478
+      }
+    },
+    {
+      "ticket_id": "v1-0095",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.051,
+        "route_ms": 0.211,
+        "total_ms": 12.265
+      }
+    },
+    {
+      "ticket_id": "v1-0096",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 32.042,
+        "route_ms": 0.325,
+        "total_ms": 32.374
+      }
+    },
+    {
+      "ticket_id": "v1-0097",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 13.468,
+        "route_ms": 0.382,
+        "total_ms": 13.856
+      }
+    },
+    {
+      "ticket_id": "v1-0098",
+      "source": "security",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.835,
+        "route_ms": 0.234,
+        "total_ms": 10.073
+      }
+    },
+    {
+      "ticket_id": "v1-0099",
+      "source": "email",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 23.8,
+        "route_ms": 0.244,
+        "total_ms": 24.05
+      }
+    },
+    {
+      "ticket_id": "v1-0100",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.988,
+        "route_ms": 0.223,
+        "total_ms": 11.215
+      }
+    },
+    {
+      "ticket_id": "v1-0101",
+      "source": "web",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.117,
+        "route_ms": 0.211,
+        "total_ms": 11.331
+      }
+    },
+    {
+      "ticket_id": "v1-0102",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.408,
+        "route_ms": 0.219,
+        "total_ms": 12.631
+      }
+    },
+    {
+      "ticket_id": "v1-0103",
+      "source": "api",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.571,
+        "route_ms": 0.255,
+        "total_ms": 11.837
+      }
+    },
+    {
+      "ticket_id": "v1-0104",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.93,
+        "route_ms": 0.195,
+        "total_ms": 10.128
+      }
+    },
+    {
+      "ticket_id": "v1-0105",
+      "source": "support",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 12.616,
+        "route_ms": 0.271,
+        "total_ms": 12.891
+      }
+    },
+    {
+      "ticket_id": "v1-0106",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.649,
+        "route_ms": 0.28,
+        "total_ms": 10.932
+      }
+    },
+    {
+      "ticket_id": "v1-0107",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.404,
+        "route_ms": 0.201,
+        "total_ms": 10.609
+      }
+    },
+    {
+      "ticket_id": "v1-0108",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.709,
+        "route_ms": 0.2,
+        "total_ms": 10.912
+      }
+    },
+    {
+      "ticket_id": "v1-0109",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.59,
+        "route_ms": 0.235,
+        "total_ms": 10.829
+      }
+    },
+    {
+      "ticket_id": "v1-0110",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.467,
+        "route_ms": 0.204,
+        "total_ms": 10.674
+      }
+    },
+    {
+      "ticket_id": "v1-0111",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 23.427,
+        "route_ms": 0.246,
+        "total_ms": 23.678
+      }
+    },
+    {
+      "ticket_id": "v1-0112",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.29,
+        "route_ms": 0.286,
+        "total_ms": 10.58
+      }
+    },
+    {
+      "ticket_id": "v1-0113",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.708,
+        "route_ms": 0.203,
+        "total_ms": 10.914
+      }
+    },
+    {
+      "ticket_id": "v1-0114",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 12.478,
+        "route_ms": 0.263,
+        "total_ms": 12.746
+      }
+    },
+    {
+      "ticket_id": "v1-0115",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.275,
+        "route_ms": 0.212,
+        "total_ms": 11.491
+      }
+    },
+    {
+      "ticket_id": "v1-0116",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.974,
+        "route_ms": 0.252,
+        "total_ms": 11.229
+      }
+    },
+    {
+      "ticket_id": "v1-0117",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.579,
+        "route_ms": 0.3,
+        "total_ms": 10.883
+      }
+    },
+    {
+      "ticket_id": "v1-0118",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.569,
+        "route_ms": 0.261,
+        "total_ms": 10.834
+      }
+    },
+    {
+      "ticket_id": "v1-0119",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.814,
+        "route_ms": 0.199,
+        "total_ms": 11.016
+      }
+    },
+    {
+      "ticket_id": "v1-0120",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.841,
+        "route_ms": 0.191,
+        "total_ms": 11.034
+      }
+    },
+    {
+      "ticket_id": "v1-0121",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.457,
+        "route_ms": 0.204,
+        "total_ms": 10.664
+      }
+    },
+    {
+      "ticket_id": "v1-0122",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.944,
+        "route_ms": 0.223,
+        "total_ms": 10.17
+      }
+    },
+    {
+      "ticket_id": "v1-0123",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 24.67,
+        "route_ms": 0.25,
+        "total_ms": 24.966
+      }
+    },
+    {
+      "ticket_id": "v1-0124",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 16.85,
+        "route_ms": 0.234,
+        "total_ms": 17.088
+      }
+    },
+    {
+      "ticket_id": "v1-0125",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 34.037,
+        "route_ms": 0.453,
+        "total_ms": 34.502
+      }
+    },
+    {
+      "ticket_id": "v1-0126",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.526,
+        "route_ms": 0.286,
+        "total_ms": 10.817
+      }
+    },
+    {
+      "ticket_id": "v1-0127",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.619,
+        "route_ms": 0.237,
+        "total_ms": 9.86
+      }
+    },
+    {
+      "ticket_id": "v1-0128",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.433,
+        "route_ms": 0.219,
+        "total_ms": 11.656
+      }
+    },
+    {
+      "ticket_id": "v1-0129",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.773,
+        "route_ms": 0.206,
+        "total_ms": 11.982
+      }
+    },
+    {
+      "ticket_id": "v1-0130",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.778,
+        "route_ms": 0.2,
+        "total_ms": 10.981
+      }
+    },
+    {
+      "ticket_id": "v1-0131",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.409,
+        "route_ms": 0.191,
+        "total_ms": 10.602
+      }
+    },
+    {
+      "ticket_id": "v1-0132",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 15.411,
+        "route_ms": 0.225,
+        "total_ms": 15.64
+      }
+    },
+    {
+      "ticket_id": "v1-0133",
+      "source": "email",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.778,
+        "route_ms": 0.236,
+        "total_ms": 10.018
+      }
+    },
+    {
+      "ticket_id": "v1-0134",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.943,
+        "route_ms": 0.213,
+        "total_ms": 11.16
+      }
+    },
+    {
+      "ticket_id": "v1-0135",
+      "source": "web",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 23.493,
+        "route_ms": 0.239,
+        "total_ms": 23.736
+      }
+    },
+    {
+      "ticket_id": "v1-0136",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.759,
+        "route_ms": 0.215,
+        "total_ms": 10.978
+      }
+    },
+    {
+      "ticket_id": "v1-0137",
+      "source": "api",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.857,
+        "route_ms": 0.234,
+        "total_ms": 11.094
+      }
+    },
+    {
+      "ticket_id": "v1-0138",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.708,
+        "route_ms": 0.207,
+        "total_ms": 10.918
+      }
+    },
+    {
+      "ticket_id": "v1-0139",
+      "source": "support",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.101,
+        "route_ms": 0.323,
+        "total_ms": 12.429
+      }
+    },
+    {
+      "ticket_id": "v1-0140",
+      "source": "security",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.091,
+        "route_ms": 0.208,
+        "total_ms": 11.303
+      }
+    },
+    {
+      "ticket_id": "v1-0141",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.772,
+        "route_ms": 0.252,
+        "total_ms": 11.028
+      }
+    },
+    {
+      "ticket_id": "v1-0142",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.413,
+        "route_ms": 0.199,
+        "total_ms": 10.615
+      }
+    },
+    {
+      "ticket_id": "v1-0143",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.689,
+        "route_ms": 0.2,
+        "total_ms": 10.892
+      }
+    },
+    {
+      "ticket_id": "v1-0144",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.821,
+        "route_ms": 0.277,
+        "total_ms": 11.102
+      }
+    },
+    {
+      "ticket_id": "v1-0145",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.377,
+        "route_ms": 0.208,
+        "total_ms": 9.588
+      }
+    },
+    {
+      "ticket_id": "v1-0146",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.486,
+        "route_ms": 0.193,
+        "total_ms": 10.682
+      }
+    },
+    {
+      "ticket_id": "v1-0147",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.803,
+        "route_ms": 0.233,
+        "total_ms": 24.04
+      }
+    },
+    {
+      "ticket_id": "v1-0148",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 13.204,
+        "route_ms": 0.289,
+        "total_ms": 13.498
+      }
+    },
+    {
+      "ticket_id": "v1-0149",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.949,
+        "route_ms": 0.21,
+        "total_ms": 11.162
+      }
+    },
+    {
+      "ticket_id": "v1-0150",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.689,
+        "route_ms": 0.213,
+        "total_ms": 10.905
+      }
+    },
+    {
+      "ticket_id": "v1-0151",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.464,
+        "route_ms": 0.204,
+        "total_ms": 10.671
+      }
+    },
+    {
+      "ticket_id": "v1-0152",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.894,
+        "route_ms": 0.186,
+        "total_ms": 11.082
+      }
+    },
+    {
+      "ticket_id": "v1-0153",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.657,
+        "route_ms": 0.204,
+        "total_ms": 10.865
+      }
+    },
+    {
+      "ticket_id": "v1-0154",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.308,
+        "route_ms": 0.177,
+        "total_ms": 10.487
+      }
+    },
+    {
+      "ticket_id": "v1-0155",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.323,
+        "route_ms": 0.237,
+        "total_ms": 10.564
+      }
+    },
+    {
+      "ticket_id": "v1-0156",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 25.316,
+        "route_ms": 0.579,
+        "total_ms": 25.909
+      }
+    },
+    {
+      "ticket_id": "v1-0157",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 29.509,
+        "route_ms": 0.469,
+        "total_ms": 29.985
+      }
+    },
+    {
+      "ticket_id": "v1-0158",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.754,
+        "route_ms": 0.231,
+        "total_ms": 9.989
+      }
+    },
+    {
+      "ticket_id": "v1-0159",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.574,
+        "route_ms": 0.239,
+        "total_ms": 23.818
+      }
+    },
+    {
+      "ticket_id": "v1-0160",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.675,
+        "route_ms": 0.207,
+        "total_ms": 9.886
+      }
+    },
+    {
+      "ticket_id": "v1-0161",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.959,
+        "route_ms": 0.208,
+        "total_ms": 12.17
+      }
+    },
+    {
+      "ticket_id": "v1-0162",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.004,
+        "route_ms": 0.216,
+        "total_ms": 11.225
+      }
+    },
+    {
+      "ticket_id": "v1-0163",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.83,
+        "route_ms": 0.212,
+        "total_ms": 11.045
+      }
+    },
+    {
+      "ticket_id": "v1-0164",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.698,
+        "route_ms": 0.222,
+        "total_ms": 11.923
+      }
+    },
+    {
+      "ticket_id": "v1-0165",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.327,
+        "route_ms": 0.227,
+        "total_ms": 10.556
+      }
+    },
+    {
+      "ticket_id": "v1-0166",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.501,
+        "route_ms": 0.211,
+        "total_ms": 9.715
+      }
+    },
+    {
+      "ticket_id": "v1-0167",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.446,
+        "route_ms": 0.265,
+        "total_ms": 11.716
+      }
+    },
+    {
+      "ticket_id": "v1-0168",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.797,
+        "route_ms": 0.23,
+        "total_ms": 11.03
+      }
+    },
+    {
+      "ticket_id": "v1-0169",
+      "source": "web",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.963,
+        "route_ms": 0.201,
+        "total_ms": 11.167
+      }
+    },
+    {
+      "ticket_id": "v1-0170",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.086,
+        "route_ms": 0.225,
+        "total_ms": 10.315
+      }
+    },
+    {
+      "ticket_id": "v1-0171",
+      "source": "api",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.321,
+        "route_ms": 0.235,
+        "total_ms": 23.56
+      }
+    },
+    {
+      "ticket_id": "v1-0172",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.928,
+        "route_ms": 0.209,
+        "total_ms": 11.14
+      }
+    },
+    {
+      "ticket_id": "v1-0173",
+      "source": "support",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P1",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.681,
+        "route_ms": 0.222,
+        "total_ms": 10.906
+      }
+    },
+    {
+      "ticket_id": "v1-0174",
+      "source": "security",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P2",
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Queue",
+        "assigned_queue": "security-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.621,
+        "route_ms": 0.2,
+        "total_ms": 10.824
+      }
+    },
+    {
+      "ticket_id": "v1-0175",
+      "source": "email",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 14.926,
+        "route_ms": 0.317,
+        "total_ms": 15.247
+      }
+    },
+    {
+      "ticket_id": "v1-0176",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.598,
+        "route_ms": 0.209,
+        "total_ms": 11.811
+      }
+    },
+    {
+      "ticket_id": "v1-0177",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.856,
+        "route_ms": 0.204,
+        "total_ms": 11.063
+      }
+    },
+    {
+      "ticket_id": "v1-0178",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.726,
+        "route_ms": 0.189,
+        "total_ms": 10.918
+      }
+    },
+    {
+      "ticket_id": "v1-0179",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.587,
+        "route_ms": 0.205,
+        "total_ms": 10.796
+      }
+    },
+    {
+      "ticket_id": "v1-0180",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.748,
+        "route_ms": 0.199,
+        "total_ms": 10.95
+      }
+    },
+    {
+      "ticket_id": "v1-0181",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.815,
+        "route_ms": 0.236,
+        "total_ms": 11.055
+      }
+    },
+    {
+      "ticket_id": "v1-0182",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.478,
+        "route_ms": 0.221,
+        "total_ms": 10.703
+      }
+    },
+    {
+      "ticket_id": "v1-0183",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 25.173,
+        "route_ms": 0.254,
+        "total_ms": 25.433
+      }
+    },
+    {
+      "ticket_id": "v1-0184",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.742,
+        "route_ms": 0.221,
+        "total_ms": 10.967
+      }
+    },
+    {
+      "ticket_id": "v1-0185",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.593,
+        "route_ms": 0.233,
+        "total_ms": 10.829
+      }
+    },
+    {
+      "ticket_id": "v1-0186",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 22.507,
+        "route_ms": 0.903,
+        "total_ms": 23.424
+      }
+    },
+    {
+      "ticket_id": "v1-0187",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 16.035,
+        "route_ms": 0.264,
+        "total_ms": 16.305
+      }
+    },
+    {
+      "ticket_id": "v1-0188",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.879,
+        "route_ms": 0.214,
+        "total_ms": 11.096
+      }
+    },
+    {
+      "ticket_id": "v1-0189",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.837,
+        "route_ms": 0.286,
+        "total_ms": 11.128
+      }
+    },
+    {
+      "ticket_id": "v1-0190",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.148,
+        "route_ms": 0.281,
+        "total_ms": 11.433
+      }
+    },
+    {
+      "ticket_id": "v1-0191",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.867,
+        "route_ms": 0.227,
+        "total_ms": 11.098
+      }
+    },
+    {
+      "ticket_id": "v1-0192",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.817,
+        "route_ms": 0.193,
+        "total_ms": 11.013
+      }
+    },
+    {
+      "ticket_id": "v1-0193",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 14.738,
+        "route_ms": 0.269,
+        "total_ms": 15.012
+      }
+    },
+    {
+      "ticket_id": "v1-0194",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.034,
+        "route_ms": 0.215,
+        "total_ms": 11.252
+      }
+    },
+    {
+      "ticket_id": "v1-0195",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 21.566,
+        "route_ms": 0.218,
+        "total_ms": 21.787
+      }
+    },
+    {
+      "ticket_id": "v1-0196",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.665,
+        "route_ms": 0.22,
+        "total_ms": 11.889
+      }
+    },
+    {
+      "ticket_id": "v1-0197",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.813,
+        "route_ms": 0.193,
+        "total_ms": 11.009
+      }
+    },
+    {
+      "ticket_id": "v1-0198",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.362,
+        "route_ms": 0.196,
+        "total_ms": 10.56
+      }
+    },
+    {
+      "ticket_id": "v1-0199",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 9.946,
+        "route_ms": 0.192,
+        "total_ms": 10.14
+      }
+    },
+    {
+      "ticket_id": "v1-0200",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.92,
+        "route_ms": 0.269,
+        "total_ms": 11.193
+      }
+    },
+    {
+      "ticket_id": "v1-0201",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.015,
+        "route_ms": 0.262,
+        "total_ms": 12.282
+      }
+    },
+    {
+      "ticket_id": "v1-0202",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 12.305,
+        "route_ms": 0.241,
+        "total_ms": 12.55
+      }
+    },
+    {
+      "ticket_id": "v1-0203",
+      "source": "web",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.434,
+        "route_ms": 0.194,
+        "total_ms": 10.631
+      }
+    },
+    {
+      "ticket_id": "v1-0204",
+      "source": "mobile",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.2,
+        "route_ms": 0.232,
+        "total_ms": 10.436
+      }
+    },
+    {
+      "ticket_id": "v1-0205",
+      "source": "api",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.453,
+        "route_ms": 0.217,
+        "total_ms": 12.673
+      }
+    },
+    {
+      "ticket_id": "v1-0206",
+      "source": "ops",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.045,
+        "route_ms": 0.202,
+        "total_ms": 10.25
+      }
+    },
+    {
+      "ticket_id": "v1-0207",
+      "source": "support",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 23.032,
+        "route_ms": 0.248,
+        "total_ms": 23.284
+      }
+    },
+    {
+      "ticket_id": "v1-0208",
+      "source": "security",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.726,
+        "route_ms": 0.218,
+        "total_ms": 10.948
+      }
+    },
+    {
+      "ticket_id": "v1-0209",
+      "source": "email",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.6,
+        "route_ms": 0.217,
+        "total_ms": 10.82
+      }
+    },
+    {
+      "ticket_id": "v1-0210",
+      "source": "chat",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 12.08,
+        "route_ms": 0.275,
+        "total_ms": 12.359
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0001",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P0",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P2",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.877,
+        "route_ms": 0.2,
+        "total_ms": 11.08
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0002",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P0",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.842,
+        "route_ms": 0.209,
+        "total_ms": 11.055
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0003",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.84,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.406,
+        "route_ms": 0.22,
+        "total_ms": 11.629
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0004",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P0",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p0"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P0",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.014,
+        "route_ms": 0.216,
+        "total_ms": 11.233
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0005",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P0",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.893,
+        "route_ms": 0.253,
+        "total_ms": 11.149
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0006",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 28.316,
+        "route_ms": 0.283,
+        "total_ms": 28.605
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0007",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 16.896,
+        "route_ms": 0.328,
+        "total_ms": 17.231
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0008",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P1",
+        "confidence": 0.84,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "perf-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.739,
+        "route_ms": 0.222,
+        "total_ms": 10.965
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0009",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P1",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.137,
+        "route_ms": 0.238,
+        "total_ms": 23.379
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0010",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P2",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p2"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P3",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.748,
+        "route_ms": 0.21,
+        "total_ms": 10.962
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0011",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P2",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P2",
+        "confidence": 0.84,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.468,
+        "route_ms": 0.204,
+        "total_ms": 10.676
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0012",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 10.831,
+        "route_ms": 0.188,
+        "total_ms": 11.021
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0013",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 11.989,
+        "route_ms": 0.174,
+        "total_ms": 12.165
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0014",
+      "source": "edge_multi_category",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "outage-p2"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P1",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 11.256,
+        "route_ms": 0.205,
+        "total_ms": 11.465
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0015",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.84,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.644,
+        "route_ms": 0.204,
+        "total_ms": 12.851
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0016",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 13.338,
+        "route_ms": 0.426,
+        "total_ms": 13.77
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0017",
+      "source": "edge_minimal",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P3",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.063,
+        "route_ms": 0.225,
+        "total_ms": 10.292
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0018",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.074,
+        "route_ms": 0.266,
+        "total_ms": 11.344
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0019",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.623,
+        "route_ms": 0.199,
+        "total_ms": 9.825
+      }
+    },
+    {
+      "ticket_id": "v2-edge-0020",
+      "source": "edge_ambiguous",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.67,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.783,
+        "route_ms": 0.207,
+        "total_ms": 10.993
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0001",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.034,
+        "route_ms": 0.243,
+        "total_ms": 23.282
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0002",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.373,
+        "route_ms": 0.219,
+        "total_ms": 11.595
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0003",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.848,
+        "route_ms": 0.222,
+        "total_ms": 11.074
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0004",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.885,
+        "route_ms": 0.296,
+        "total_ms": 13.185
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0005",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.388,
+        "route_ms": 0.201,
+        "total_ms": 10.593
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0006",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.408,
+        "route_ms": 0.212,
+        "total_ms": 10.623
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0007",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.357,
+        "route_ms": 0.258,
+        "total_ms": 11.618
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0008",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 15.469,
+        "route_ms": 0.198,
+        "total_ms": 15.669
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0009",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.907,
+        "route_ms": 0.268,
+        "total_ms": 11.179
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0010",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.922,
+        "route_ms": 0.204,
+        "total_ms": 10.13
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0011",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.614,
+        "route_ms": 0.254,
+        "total_ms": 10.872
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0012",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.994,
+        "route_ms": 0.207,
+        "total_ms": 11.204
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0013",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.501,
+        "route_ms": 0.27,
+        "total_ms": 23.777
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0014",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.185,
+        "route_ms": 0.204,
+        "total_ms": 11.392
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0015",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.471,
+        "route_ms": 0.219,
+        "total_ms": 10.694
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0016",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.55,
+        "route_ms": 0.217,
+        "total_ms": 10.77
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0017",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.189,
+        "route_ms": 0.206,
+        "total_ms": 9.398
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0018",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.023,
+        "route_ms": 0.281,
+        "total_ms": 10.307
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0019",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.019,
+        "route_ms": 0.209,
+        "total_ms": 11.231
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0020",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 30.699,
+        "route_ms": 0.319,
+        "total_ms": 31.025
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0021",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 16.588,
+        "route_ms": 0.249,
+        "total_ms": 16.841
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0022",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.411,
+        "route_ms": 0.202,
+        "total_ms": 9.617
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0023",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.44,
+        "route_ms": 0.209,
+        "total_ms": 10.652
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0024",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.275,
+        "route_ms": 0.258,
+        "total_ms": 10.537
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0025",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.198,
+        "route_ms": 0.257,
+        "total_ms": 23.461
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0026",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.849,
+        "route_ms": 0.233,
+        "total_ms": 11.085
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0027",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.553,
+        "route_ms": 0.195,
+        "total_ms": 10.751
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0028",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.83,
+        "route_ms": 0.246,
+        "total_ms": 10.08
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0029",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Security",
+        "severity": "P0",
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "prediction": {
+        "category": "Security",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Security-Oncall",
+        "assigned_queue": "security-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.633,
+        "route_ms": 0.213,
+        "total_ms": 11.849
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0030",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.19,
+        "route_ms": 0.239,
+        "total_ms": 12.433
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0031",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.237,
+        "route_ms": 0.195,
+        "total_ms": 9.434
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0032",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.037,
+        "route_ms": 0.206,
+        "total_ms": 9.247
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0033",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.786,
+        "route_ms": 0.238,
+        "total_ms": 11.026
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0034",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 9.014,
+        "route_ms": 0.209,
+        "total_ms": 9.226
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0035",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.576,
+        "route_ms": 0.189,
+        "total_ms": 10.767
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0036",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.312,
+        "route_ms": 0.202,
+        "total_ms": 10.517
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0037",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 23.121,
+        "route_ms": 0.229,
+        "total_ms": 23.357
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0038",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 12.307,
+        "route_ms": 0.231,
+        "total_ms": 12.541
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0039",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.898,
+        "route_ms": 0.216,
+        "total_ms": 11.118
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0040",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 10.564,
+        "route_ms": 0.211,
+        "total_ms": 10.779
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0041",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Outage",
+        "severity": "P0",
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "prediction": {
+        "category": "Outage",
+        "severity": "P0",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Oncall",
+        "assigned_queue": "outage-p0"
+      },
+      "latency_ms": {
+        "classify_ms": 11.311,
+        "route_ms": 0.242,
+        "total_ms": 11.556
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0042",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 10.354,
+        "route_ms": 0.206,
+        "total_ms": 10.564
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0043",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P1",
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Oncall",
+        "assigned_queue": "auth-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 8.928,
+        "route_ms": 0.215,
+        "total_ms": 9.147
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0044",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P1",
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P1",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Oncall",
+        "assigned_queue": "billing-p1"
+      },
+      "latency_ms": {
+        "classify_ms": 9.024,
+        "route_ms": 0.229,
+        "total_ms": 9.256
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0045",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 9.136,
+        "route_ms": 0.228,
+        "total_ms": 9.367
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0046",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P2",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P2",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p2"
+      },
+      "latency_ms": {
+        "classify_ms": 13.726,
+        "route_ms": 0.225,
+        "total_ms": 13.955
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0047",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.778,
+        "route_ms": 0.212,
+        "total_ms": 10.992
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0048",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.921,
+        "route_ms": 0.271,
+        "total_ms": 11.196
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0049",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 21.583,
+        "route_ms": 0.3,
+        "total_ms": 21.895
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0050",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Auth",
+        "severity": "P3",
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "prediction": {
+        "category": "Auth",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Identity-Queue",
+        "assigned_queue": "auth-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 26.666,
+        "route_ms": 0.433,
+        "total_ms": 27.111
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0051",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 15.874,
+        "route_ms": 0.262,
+        "total_ms": 16.14
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0052",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.311,
+        "route_ms": 0.24,
+        "total_ms": 10.555
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0053",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.608,
+        "route_ms": 0.213,
+        "total_ms": 10.825
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0054",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.888,
+        "route_ms": 0.203,
+        "total_ms": 11.094
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0055",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 14.733,
+        "route_ms": 0.443,
+        "total_ms": 15.187
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0056",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.37,
+        "route_ms": 0.199,
+        "total_ms": 10.571
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0057",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.284,
+        "route_ms": 0.227,
+        "total_ms": 10.514
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0058",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.1,
+        "route_ms": 0.371,
+        "total_ms": 10.48
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0059",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.799,
+        "route_ms": 0.27,
+        "total_ms": 12.074
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0060",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 13.496,
+        "route_ms": 0.459,
+        "total_ms": 13.966
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0061",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 29.659,
+        "route_ms": 0.586,
+        "total_ms": 30.254
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0062",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Billing",
+        "severity": "P3",
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "prediction": {
+        "category": "Billing",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Finance-Queue",
+        "assigned_queue": "billing-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.76,
+        "route_ms": 0.42,
+        "total_ms": 13.189
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0063",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.401,
+        "route_ms": 0.363,
+        "total_ms": 12.805
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0064",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 14.854,
+        "route_ms": 0.407,
+        "total_ms": 15.271
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0065",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.763,
+        "route_ms": 0.672,
+        "total_ms": 12.444
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0066",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.495,
+        "route_ms": 0.286,
+        "total_ms": 12.786
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0067",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 13.113,
+        "route_ms": 0.295,
+        "total_ms": 13.413
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0068",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Performance",
+        "severity": "P3",
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "prediction": {
+        "category": "Performance",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "SRE-Queue",
+        "assigned_queue": "perf-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 10.644,
+        "route_ms": 0.387,
+        "total_ms": 11.042
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0069",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 11.804,
+        "route_ms": 0.386,
+        "total_ms": 12.199
+      }
+    },
+    {
+      "ticket_id": "v2-synth-0070",
+      "source": "synthetic_balanced",
+      "ground_truth": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "prediction": {
+        "category": "Feature Request",
+        "severity": "P3",
+        "confidence": 0.93,
+        "needs_review": false,
+        "assigned_team": "Product-Queue",
+        "assigned_queue": "feature-p3"
+      },
+      "latency_ms": {
+        "classify_ms": 12.535,
+        "route_ms": 0.229,
+        "total_ms": 12.767
+      }
+    }
+  ]
 }
