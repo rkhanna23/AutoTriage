@@ -236,7 +236,20 @@ python -m evaluation.run_baseline \
   --output evaluation/checkpoint2_baseline.json
 ```
 
-Output includes `category_accuracy`, `severity_accuracy`, per-class precision/recall, and per-ticket predictions. Expect ~10–30 minutes for 210 tickets (one LLM call per ticket). Latest run: **99.52%** category accuracy, **44.29%** severity accuracy.
+Output includes `category_accuracy`, `severity_accuracy`, per-class precision/recall, and per-ticket predictions. Expect ~10–30 minutes for 210 tickets (one LLM call per ticket). CP2 baseline (`v1.0`) achieved **99.52%** category accuracy and **44.29%** severity accuracy.
+
+Run the CP3 prompt comparison across `v1.0`, `v2.0`, and `v2.1`:
+
+```bash
+python -m evaluation.run_baseline \
+  --dataset data/ticket_dataset_v1.json \
+  --compare \
+  --output-dir evaluation \
+  --comparison-output evaluation/checkpoint3_comparison.json \
+  --markdown-output evaluation/checkpoint3_comparison.md
+```
+
+Latest CP3 result: `v2.1` is the recommended default and produced **100.00%** category accuracy, **100.00%** severity accuracy, **0.00%** needs-review rate, and **0.0700** expected calibration error on Dataset v1.
 
 ### Dashboard (KL-03)
 
@@ -384,6 +397,10 @@ Integration tests mock the classifier/router, so they pass without running those
 | CP3-RK-03 | Ronit | Done | Wire routing into intake–classify pipeline |
 | CP3-RK-04 | Ronit | Done | Latency instrumentation and GET /metrics/latency |
 | CP3-RK-05 | Ronit | Done | Integration tests for pipeline and router |
+| CP3-SA-01 | Saahiti | Done | Improve severity prediction with few-shot and reasoning-first prompts (`v2.0`, `v2.1`) |
+| CP3-SA-02 | Saahiti | Done | Prompt registry with version metadata and `prompt_version` request support |
+| CP3-SA-03 | Saahiti | Done | Confidence calibration, `needs_review`, and low-confidence fallback logic |
+| CP3-SA-04 | Saahiti | Done | Comparative evaluation artifacts: `checkpoint3_v*.json`, `checkpoint3_comparison.json`, `checkpoint3_comparison.md` |
 
 ---
 

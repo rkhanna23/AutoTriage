@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, Float, Integer, String, DateTime, Enum as SAEnum
+from sqlalchemy import Boolean, Column, Float, Integer, String, DateTime, Enum as SAEnum
 from sqlalchemy.dialects.sqlite import TEXT
 from .database import Base
 
@@ -34,6 +34,7 @@ class Ticket(Base):
     confidence = Column(Float, nullable=True)
     model_version = Column(String(100), nullable=True)
     prompt_version = Column(String(50), nullable=True)
+    needs_review = Column(Boolean, nullable=False, default=False)
     classification_status = Column(
         String(20), nullable=False, default="pending"
     )  # pending | classified | failed
@@ -65,6 +66,7 @@ class Ticket(Base):
             confidence=self.confidence,
             model_version=self.model_version,
             prompt_version=self.prompt_version,
+            needs_review=bool(self.needs_review),
             classification_status=self.classification_status or "pending",
         )
 

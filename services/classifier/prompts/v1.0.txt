@@ -46,31 +46,31 @@ Example 1:
 Title: "SSO callback returns 401 for all users"
 Description: "Users cannot log in after redirect."
 Output:
-{"ticket_id":"ex-1","category":"Auth","severity":"P1","confidence":0.93,"model_version":"<model id>","prompt_version":"v1.0"}
+{"ticket_id":"ex-1","category":"Auth","severity":"P1","confidence":0.93,"model_version":"<model id>","prompt_version":"v1.0","needs_review":false}
 
 Example 2:
 Title: "Public S3 bucket exposes customer logs"
 Description: "Internal scan found sensitive records publicly accessible."
 Output:
-{"ticket_id":"ex-2","category":"Security","severity":"P0","confidence":0.96,"model_version":"<model id>","prompt_version":"v1.0"}
+{"ticket_id":"ex-2","category":"Security","severity":"P0","confidence":0.96,"model_version":"<model id>","prompt_version":"v1.0","needs_review":false}
 
 Example 3:
 Title: "API returns 503 in all regions"
 Description: "Most requests fail; service unavailable."
 Output:
-{"ticket_id":"ex-3","category":"Outage","severity":"P0","confidence":0.97,"model_version":"<model id>","prompt_version":"v1.0"}
+{"ticket_id":"ex-3","category":"Outage","severity":"P0","confidence":0.97,"model_version":"<model id>","prompt_version":"v1.0","needs_review":false}
 
 Example 4:
 Title: "Dashboard loads in 25 seconds"
 Description: "Users report slowness but requests eventually complete."
 Output:
-{"ticket_id":"ex-4","category":"Performance","severity":"P2","confidence":0.9,"model_version":"<model id>","prompt_version":"v1.0"}
+{"ticket_id":"ex-4","category":"Performance","severity":"P2","confidence":0.9,"model_version":"<model id>","prompt_version":"v1.0","needs_review":false}
 
 Example 5:
 Title: "Need bulk export to CSV"
 Description: "Customer asks for a new export feature."
 Output:
-{"ticket_id":"ex-5","category":"Feature Request","severity":"P3","confidence":0.92,"model_version":"<model id>","prompt_version":"v1.0"}
+{"ticket_id":"ex-5","category":"Feature Request","severity":"P3","confidence":0.92,"model_version":"<model id>","prompt_version":"v1.0","needs_review":false}
 
 TICKET:
 Ticket ID: {{ticket_id}}
@@ -85,5 +85,6 @@ Use exactly this schema:
   "severity": "<P0|P1|P2|P3>",
   "confidence": <float 0.0-1.0>,
   "model_version": "<model id>",
-  "prompt_version": "v1.0"
+  "prompt_version": "v1.0",
+  "needs_review": <true|false>
 }

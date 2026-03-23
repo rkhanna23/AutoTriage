@@ -37,6 +37,7 @@ def classify_ticket(
         "confidence": 0.0,
         "model_version": "",
         "prompt_version": "",
+        "needs_review": True,
     }
     start = time.perf_counter()
     try:
@@ -53,6 +54,7 @@ def classify_ticket(
                     "confidence": data.get("confidence", 0.0),
                     "model_version": data.get("model_version", ""),
                     "prompt_version": data.get("prompt_version", ""),
+                    "needs_review": bool(data.get("needs_review", False)),
                 },
                 elapsed_ms,
                 True,
